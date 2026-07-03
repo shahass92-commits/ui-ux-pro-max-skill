@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compass Nexus - Your AI Nexus for Navigating Complexity</title>
+  <meta name="description" content="Compass Nexus unifies your data, agents, and workflows into one intelligent hub — so every decision has a clear direction.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#070B0F',
+            surface: '#0C1319',
+            card: '#0F1922',
+            primary: '#2DD4BF',
+            secondary: '#67E8F9',
+            deep: '#0D9488',
+            text: '#E6F1F1',
+            muted: '#8FA3AA',
+            border: 'rgba(255,255,255,0.08)',
+          },
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    .glow-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+    }
+    .grid-lines {
+      background-image:
+        linear-gradient(rgba(45,212,191,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,212,191,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #67E8F9, #2DD4BF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-bg font-body text-text antialiased">
+
+  <!-- Navbar -->
+  <nav class="fixed top-4 left-4 right-4 z-50 glass rounded-2xl">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 cursor-pointer">
+        <svg viewBox="0 0 220 220" class="w-9 h-9" aria-hidden="true">
+          <defs>
+            <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#A5F3FC"/>
+              <stop offset="100%" stop-color="#0D9488"/>
+            </linearGradient>
+          </defs>
+          <circle cx="110" cy="110" r="108" fill="#0A0F13"/>
+          <path d="M 183.73 161.62 A 90 90 0 1 1 183.73 58.38" fill="none" stroke="url(#navGrad)" stroke-width="9" stroke-linecap="round"/>
+          <path d="M 172.75 145.99 A 65 65 0 1 1 172.75 74.01" fill="none" stroke="url(#navGrad)" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+          <path d="M 162.76 133.53 A 40 40 0 1 1 162.76 86.47" fill="none" stroke="url(#navGrad)" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+          <path d="M 145 75 L 145 145 L 205 110 Z" fill="url(#navGrad)"/>
+        </svg>
+        <span class="font-heading font-bold text-xl tracking-tight text-white">Compass Nexus</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#platform" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer text-sm font-medium">Platform</a>
+        <a href="#how-it-works" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer text-sm font-medium">How it Works</a>
+        <a href="#pricing" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer text-sm font-medium">Pricing</a>
+        <a href="#faq" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer text-sm font-medium">FAQ</a>
+      </div>
+      <a href="#cta" class="bg-primary hover:bg-secondary text-bg font-heading font-semibold px-5 py-2.5 rounded-lg transition-colors duration-200 cursor-pointer text-sm">
+        Get Started
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-40 pb-28 px-4 grid-lines">
+    <div class="glow-orb w-[500px] h-[500px] bg-primary/20 top-[-150px] left-1/2 -translate-x-1/2"></div>
+    <div class="glow-orb w-[350px] h-[350px] bg-secondary/10 bottom-[-100px] right-[10%]"></div>
+
+    <div class="relative max-w-5xl mx-auto text-center">
+      <div class="hero-anim inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8 text-xs font-medium text-primary">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        Now routing over 12M signals a day
+      </div>
+
+      <h1 class="hero-anim font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
+        Navigate Complexity.<br>
+        Find Your <span class="text-gradient">Nexus.</span>
+      </h1>
+
+      <p class="hero-anim text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+        Compass Nexus unifies your data, agents, and workflows into one intelligent hub —
+        so every decision has a clear direction.
+      </p>
+
+      <div class="hero-anim flex flex-col sm:flex-row gap-4 justify-center mb-20">
+        <a href="#cta" class="bg-primary hover:bg-secondary text-bg font-heading font-semibold px-8 py-4 rounded-xl text-lg transition-colors duration-200 cursor-pointer shadow-lg shadow-primary/20">
+          Start Free Trial
+        </a>
+        <a href="#how-it-works" class="glass hover:bg-white/5 text-white font-heading font-semibold px-8 py-4 rounded-xl text-lg transition-colors duration-200 cursor-pointer">
+          See How It Works
+        </a>
+      </div>
+
+      <div class="hero-anim grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="font-heading text-3xl md:text-4xl font-bold text-gradient mb-1">500+</div>
+          <div class="text-muted text-sm">Integrations</div>
+        </div>
+        <div class="text-center">
+          <div class="font-heading text-3xl md:text-4xl font-bold text-gradient mb-1">12M+</div>
+          <div class="text-muted text-sm">Signals Routed Daily</div>
+        </div>
+        <div class="text-center">
+          <div class="font-heading text-3xl md:text-4xl font-bold text-gradient mb-1">99.99%</div>
+          <div class="text-muted text-sm">Uptime SLA</div>
+        </div>
+        <div class="text-center">
+          <div class="font-heading text-3xl md:text-4xl font-bold text-gradient mb-1">4.9/5</div>
+          <div class="text-muted text-sm">Customer Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Cloud -->
+  <section class="py-14 px-4 border-y border-border bg-surface/50">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-muted/70 text-xs font-medium mb-8 uppercase tracking-widest">Trusted by teams navigating scale</p>
+      <div class="flex flex-wrap justify-center items-center gap-12 opacity-50">
+        <span class="font-heading font-bold text-xl text-white">Orbital</span>
+        <span class="font-heading font-bold text-xl text-white">Lattice</span>
+        <span class="font-heading font-bold text-xl text-white">Vantage</span>
+        <span class="font-heading font-bold text-xl text-white">Meridian</span>
+        <span class="font-heading font-bold text-xl text-white">Fathom</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="platform" class="py-28 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <span class="text-primary font-heading font-semibold text-sm tracking-widest uppercase">The Platform</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-4">One Hub. Every Direction.</h2>
+        <p class="text-muted text-lg max-w-2xl mx-auto">Compass Nexus connects your systems, agents, and people — then charts the optimal path forward.</p>
+      </div>
+
+      <div class="reveal-group grid md:grid-cols-3 gap-6">
+        <div class="reveal-item glass p-8 rounded-2xl hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-200">
+            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8l3 4-3 4-3-4 3-4z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Unified Intelligence Hub</h3>
+          <p class="text-muted leading-relaxed">Connect every data source, API, and tool into a single nexus — no more scattered context.</p>
+        </div>
+
+        <div class="reveal-item glass p-8 rounded-2xl hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-200">
+            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Adaptive Routing</h3>
+          <p class="text-muted leading-relaxed">AI-driven decision routing finds the optimal path in real time as conditions change.</p>
+        </div>
+
+        <div class="reveal-item glass p-8 rounded-2xl hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-200">
+            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Agent Orchestration</h3>
+          <p class="text-muted leading-relaxed">Coordinate autonomous agents across your stack from a single control plane.</p>
+        </div>
+
+        <div class="reveal-item glass p-8 rounded-2xl hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-200">
+            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Real-Time Signal Mapping</h3>
+          <p class="text-muted leading-relaxed">Visualize how information flows across your organization in a live compass view.</p>
+        </div>
+
+        <div class="reveal-item glass p-8 rounded-2xl hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-200">
+            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Enterprise-Grade Security</h3>
+          <p class="text-muted leading-relaxed">SOC 2 Type II, end-to-end encryption, and granular access control by design.</p>
+        </div>
+
+        <div class="reveal-item glass p-8 rounded-2xl hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-200">
+            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m0 0h4a2 2 0 002-2V5"/>
+            </svg>
+          </div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Predictive Insights</h3>
+          <p class="text-muted leading-relaxed">Forecast outcomes and surface risk before you commit time or budget.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="py-28 px-4 bg-surface/50 border-y border-border relative overflow-hidden">
+    <div class="glow-orb w-[400px] h-[400px] bg-deep/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="relative max-w-6xl mx-auto">
+      <div class="reveal text-center mb-20">
+        <span class="text-primary font-heading font-semibold text-sm tracking-widest uppercase">How It Works</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-4">Three Steps to True North</h2>
+      </div>
+
+      <div class="reveal-group grid md:grid-cols-3 gap-8 relative">
+        <div class="hidden md:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+
+        <div class="reveal-item relative text-center px-4">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl glass flex items-center justify-center font-heading text-2xl font-bold text-primary relative z-10">01</div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Connect Your Sources</h3>
+          <p class="text-muted leading-relaxed">Plug in your data, tools, and agents in minutes with pre-built connectors.</p>
+        </div>
+
+        <div class="reveal-item relative text-center px-4">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl glass flex items-center justify-center font-heading text-2xl font-bold text-primary relative z-10">02</div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Nexus Maps the Terrain</h3>
+          <p class="text-muted leading-relaxed">Our AI builds a live map of dependencies, signals, and bottlenecks across your stack.</p>
+        </div>
+
+        <div class="reveal-item relative text-center px-4">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl glass flex items-center justify-center font-heading text-2xl font-bold text-primary relative z-10">03</div>
+          <h3 class="font-heading font-semibold text-xl text-white mb-3">Move With Confidence</h3>
+          <p class="text-muted leading-relaxed">Get AI-guided direction and execute — with a clear compass at every decision point.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-28 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <span class="text-primary font-heading font-semibold text-sm tracking-widest uppercase">Testimonials</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-4">Loved by Teams Finding Their Way</h2>
+      </div>
+
+      <div class="reveal-group grid md:grid-cols-3 gap-6">
+        <div class="reveal-item glass p-8 rounded-2xl cursor-pointer hover:border-primary/30 transition-all duration-300">
+          <div class="flex gap-1 mb-4 text-primary">★★★★★</div>
+          <p class="text-text/80 mb-6 leading-relaxed">"Compass Nexus cut our decision cycles in half. What used to take a war room now takes a dashboard."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-full bg-primary/20 flex items-center justify-center text-primary font-heading font-semibold">RN</div>
+            <div>
+              <div class="font-semibold text-white">Renee Novak</div>
+              <div class="text-sm text-muted">VP Operations, Orbital</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-item glass p-8 rounded-2xl cursor-pointer hover:border-primary/30 transition-all duration-300">
+          <div class="flex gap-1 mb-4 text-primary">★★★★★</div>
+          <p class="text-text/80 mb-6 leading-relaxed">"The signal map alone paid for itself. We finally see how every agent and system connects."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-heading font-semibold">DK</div>
+            <div>
+              <div class="font-semibold text-white">David Kwan</div>
+              <div class="text-sm text-muted">CTO, Lattice Systems</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-item glass p-8 rounded-2xl cursor-pointer hover:border-primary/30 transition-all duration-300">
+          <div class="flex gap-1 mb-4 text-primary">★★★★★</div>
+          <p class="text-text/80 mb-6 leading-relaxed">"Onboarding took an afternoon. Within a week, adaptive routing was already saving us hours daily."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-full bg-deep/20 flex items-center justify-center text-deep font-heading font-semibold">MA</div>
+            <div>
+              <div class="font-semibold text-white">Mira Ahlgren</div>
+              <div class="text-sm text-muted">Founder, Fathom Labs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-28 px-4 bg-surface/50 border-y border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <span class="text-primary font-heading font-semibold text-sm tracking-widest uppercase">Pricing</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-4">Pick Your Bearing</h2>
+        <p class="text-muted text-lg">Start free. Scale as your nexus grows.</p>
+      </div>
+
+      <div class="reveal-group grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Navigator -->
+        <div class="reveal-item glass p-8 rounded-2xl cursor-pointer hover:border-primary/30 transition-all duration-300">
+          <h3 class="font-heading font-semibold text-xl text-white mb-2">Navigator</h3>
+          <p class="text-muted text-sm mb-6">For small teams getting oriented</p>
+          <div class="mb-6">
+            <span class="font-heading text-4xl font-bold text-white">$0</span>
+            <span class="text-muted">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-text/70"><svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Up to 5 users</li>
+            <li class="flex items-center gap-3 text-text/70"><svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>10 connected sources</li>
+            <li class="flex items-center gap-3 text-text/70"><svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Basic signal mapping</li>
+          </ul>
+          <button class="w-full py-3 px-6 rounded-xl border border-border text-white font-semibold hover:border-primary hover:text-primary transition-colors duration-200 cursor-pointer">Get Started</button>
+        </div>
+
+        <!-- Pathfinder (Popular) -->
+        <div class="reveal-item bg-gradient-to-br from-primary to-deep p-8 rounded-2xl relative cursor-pointer hover:shadow-xl hover:shadow-primary/20 transition-shadow duration-300 md:scale-105">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-bg text-primary text-sm font-semibold px-4 py-1 rounded-full border border-primary/30">Most Popular</div>
+          <h3 class="font-heading font-semibold text-xl text-bg mb-2">Pathfinder</h3>
+          <p class="text-bg/70 text-sm mb-6">For growing teams charting new ground</p>
+          <div class="mb-6">
+            <span class="font-heading text-4xl font-bold text-bg">$79</span>
+            <span class="text-bg/70">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-bg/90"><svg class="w-5 h-5 text-bg shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Up to 50 users</li>
+            <li class="flex items-center gap-3 text-bg/90"><svg class="w-5 h-5 text-bg shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Unlimited connected sources</li>
+            <li class="flex items-center gap-3 text-bg/90"><svg class="w-5 h-5 text-bg shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Adaptive routing + agents</li>
+            <li class="flex items-center gap-3 text-bg/90"><svg class="w-5 h-5 text-bg shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Priority support</li>
+          </ul>
+          <button class="w-full py-3 px-6 rounded-xl bg-bg text-primary font-semibold hover:bg-bg/80 transition-colors duration-200 cursor-pointer">Start Free Trial</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="reveal-item glass p-8 rounded-2xl cursor-pointer hover:border-primary/30 transition-all duration-300">
+          <h3 class="font-heading font-semibold text-xl text-white mb-2">Enterprise</h3>
+          <p class="text-muted text-sm mb-6">For organizations navigating scale</p>
+          <div class="mb-6">
+            <span class="font-heading text-4xl font-bold text-white">Custom</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-text/70"><svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Unlimited users</li>
+            <li class="flex items-center gap-3 text-text/70"><svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Custom integrations</li>
+            <li class="flex items-center gap-3 text-text/70"><svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dedicated success manager</li>
+            <li class="flex items-center gap-3 text-text/70"><svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>99.99% SLA guarantee</li>
+          </ul>
+          <button class="w-full py-3 px-6 rounded-xl border border-border text-white font-semibold hover:border-primary hover:text-primary transition-colors duration-200 cursor-pointer">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-28 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="reveal text-center mb-16">
+        <span class="text-primary font-heading font-semibold text-sm tracking-widest uppercase">FAQ</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-4 mb-4">Common Questions</h2>
+      </div>
+      <div class="reveal-group space-y-4">
+        <details class="reveal-item glass rounded-2xl p-6 cursor-pointer group">
+          <summary class="font-heading font-semibold text-white flex justify-between items-center list-none">
+            How long does setup take?
+            <span class="text-primary transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-muted mt-4 leading-relaxed">Most teams connect their first sources and see a live signal map within an afternoon, no engineering sprint required.</p>
+        </details>
+        <details class="reveal-item glass rounded-2xl p-6 cursor-pointer group">
+          <summary class="font-heading font-semibold text-white flex justify-between items-center list-none">
+            Does Compass Nexus replace our existing tools?
+            <span class="text-primary transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-muted mt-4 leading-relaxed">No — it sits on top of your stack, connecting and routing between the tools you already use.</p>
+        </details>
+        <details class="reveal-item glass rounded-2xl p-6 cursor-pointer group">
+          <summary class="font-heading font-semibold text-white flex justify-between items-center list-none">
+            Is my data secure?
+            <span class="text-primary transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-muted mt-4 leading-relaxed">Yes. Compass Nexus is SOC 2 Type II compliant with end-to-end encryption and granular access controls.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="py-28 px-4 relative overflow-hidden">
+    <div class="glow-orb w-[500px] h-[500px] bg-primary/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="reveal relative max-w-4xl mx-auto text-center">
+      <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">Ready to Find Your Direction?</h2>
+      <p class="text-muted text-lg md:text-xl mb-10 max-w-2xl mx-auto">Join teams already navigating complexity with Compass Nexus. Start your free trial today — no card required.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#" class="bg-primary hover:bg-secondary text-bg font-heading font-semibold px-8 py-4 rounded-xl text-lg transition-colors duration-200 cursor-pointer shadow-lg shadow-primary/20">
+          Start Free Trial
+        </a>
+        <a href="#" class="glass hover:bg-white/5 text-white font-heading font-semibold px-8 py-4 rounded-xl text-lg transition-colors duration-200 cursor-pointer">
+          Talk to Sales
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <a href="#" class="flex items-center gap-3 mb-4 cursor-pointer">
+            <svg viewBox="0 0 220 220" class="w-8 h-8" aria-hidden="true">
+              <circle cx="110" cy="110" r="108" fill="#0A0F13"/>
+              <path d="M 183.73 161.62 A 90 90 0 1 1 183.73 58.38" fill="none" stroke="#2DD4BF" stroke-width="9" stroke-linecap="round"/>
+              <path d="M 172.75 145.99 A 65 65 0 1 1 172.75 74.01" fill="none" stroke="#2DD4BF" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+              <path d="M 162.76 133.53 A 40 40 0 1 1 162.76 86.47" fill="none" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+              <path d="M 145 75 L 145 145 L 205 110 Z" fill="#2DD4BF"/>
+            </svg>
+            <span class="font-heading font-bold text-xl text-white">Compass Nexus</span>
+          </a>
+          <p class="text-muted leading-relaxed">Your AI nexus for navigating complexity — unified intelligence, adaptive direction.</p>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-4">Platform</h4>
+          <ul class="space-y-3">
+            <li><a href="#platform" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">Features</a></li>
+            <li><a href="#pricing" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">Pricing</a></li>
+            <li><a href="#" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">Integrations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-4">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">About</a></li>
+            <li><a href="#" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">Blog</a></li>
+            <li><a href="#" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-4">Support</h4>
+          <ul class="space-y-3">
+            <li><a href="#faq" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">FAQ</a></li>
+            <li><a href="#" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">Contact</a></li>
+            <li><a href="#" class="text-muted hover:text-primary transition-colors duration-200 cursor-pointer">Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-muted/60 text-sm">&copy; 2026 Compass Nexus. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-muted/60 hover:text-primary transition-colors duration-200 cursor-pointer text-sm">Privacy</a>
+          <a href="#" class="text-muted/60 hover:text-primary transition-colors duration-200 cursor-pointer text-sm">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.hero-anim', {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power2.out'
+    });
+
+    document.querySelectorAll('.reveal').forEach((el) => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 24,
+        duration: 0.5,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+
+    document.querySelectorAll('.reveal-group').forEach((group) => {
+      gsap.from(group.querySelectorAll('.reveal-item'), {
+        opacity: 0,
+        y: 24,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: group, start: 'top 85%' }
+      });
+    });
+  </script>
+</body>
+</html>
