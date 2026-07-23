@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compass Access — Navigation Intelligence Platform</title>
+<meta name="description" content="Compass Access: Navigation Intelligence Platform — Advanced route optimization, real-time navigation, and mobility solutions for enterprise operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   COMPASS ACCESS — Navigation Intelligence
+   Design tokens (Compass Navigation design system)
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; }
+
+:root {
+  --color-bg-base:       #05050a;
+  --color-bg-surface:    rgba(255,255,255,0.05);
+  --color-bg-surface-hover: rgba(255,255,255,0.10);
+  --color-bg-ghost:      rgba(255,255,255,0.10);
+  --color-bg-ghost-hover:rgba(255,255,255,0.20);
+
+  --color-fg-primary:    #ffffff;
+  --color-fg-secondary:  #b0b0b0;
+  --color-fg-muted:      #9ca3af;
+  --color-fg-subtle:     #6b7280;
+  --color-fg-ai-label:   #fdf0a6;
+
+  --color-teal:          #50e3c2;
+  --color-blue:          #4a90e2;
+  --color-amber:         #f5a623;
+  --color-chocolate:     #d2691e;
+  --color-indigo:        #6366f1;
+  --color-violet:        #9333ea;
+
+  --gradient-logo:       linear-gradient(120deg, #9a9a9a 0%, #fff 25%, #c8c8c8 45%, #fff 65%, #8a8a8a 85%, #efefef 100%);
+  --gradient-tagline:    linear-gradient(120deg, #a8d8ff 0%, #fff 40%, #c8eeff 70%, #fff 100%);
+  --gradient-btn-gold:   linear-gradient(135deg, #f5a623, #d2691e);
+  --gradient-btn-teal:   linear-gradient(135deg, #50e3c2, #4a90e2);
+
+  --color-border:        rgba(255,255,255,0.20);
+  --color-border-subtle: rgba(255,255,255,0.10);
+  --color-border-focus:  rgba(255,255,255,0.40);
+
+  --font-display:  'Cormorant Garamond', Georgia, serif;
+  --font-body:     'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+  --space-12: 3rem; --space-16: 4rem;
+
+  --radius-pill: 9999px; --radius-btn: 0.75rem; --radius-panel: 1.5rem; --radius-input: 0.75rem;
+  --transition-medium: 0.3s ease;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-fg-primary);
+  background-color: var(--color-bg-base);
+}
+
+::selection { background: rgba(80,227,194,0.3); color: #fff; }
+a { color: var(--color-teal); text-decoration: none; }
+a:hover { color: var(--color-blue); }
+img { display: block; max-width: 100%; }
+input, textarea { outline: none; }
+input:focus, textarea:focus { border-color: var(--color-border-focus) !important; background: var(--color-bg-ghost-hover) !important; }
+
+.label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-fg-muted); }
+.micro { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-fg-subtle); }
+
+h2 { font-weight: 400; text-transform: none; letter-spacing: 0; margin: var(--space-2) 0 var(--space-10); font-size: clamp(1.6rem,3vw,2.4rem); }
+h3 { margin: 0; }
+
+/* ---------- Layout shell ---------- */
+.page { position: relative; background: var(--color-bg-base); min-height: 100vh; }
+.section { position: relative; z-index: 1; max-width: 64rem; margin: 0 auto; padding: var(--space-16) var(--space-6); }
+.panel { background: var(--color-bg-surface); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-panel); padding: var(--space-6); transition: var(--transition-medium); }
+.panel-hover:hover { transform: translateY(-6px); border-color: var(--color-border-focus); }
+.grid-auto { display: grid; gap: var(--space-6); }
+
+/* ---------- Navigation Icon Background Animations ---------- */
+#nav-icons {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.nav-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+}
+
+.nav-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(80, 227, 194, 0.3));
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(40px) translateY(-50px) rotate(45deg); }
+  50% { transform: translateX(20px) translateY(-100px) rotate(90deg); }
+  75% { transform: translateX(-30px) translateY(-60px) rotate(135deg); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(90deg); }
+  25% { transform: translateX(-50px) translateY(40px) rotate(135deg); }
+  50% { transform: translateX(-80px) translateY(20px) rotate(180deg); }
+  75% { transform: translateX(-40px) translateY(-30px) rotate(225deg); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(180deg); }
+  25% { transform: translateX(30px) translateY(50px) rotate(225deg); }
+  50% { transform: translateX(60px) translateY(80px) rotate(270deg); }
+  75% { transform: translateX(35px) translateY(40px) rotate(315deg); }
+}
+
+@keyframes float-4 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(270deg); }
+  25% { transform: translateX(-40px) translateY(-40px) rotate(315deg); }
+  50% { transform: translateX(-60px) translateY(-80px) rotate(360deg); }
+  75% { transform: translateX(-30px) translateY(-50px) rotate(45deg); }
+}
+
+.icon-compass { animation: float-1 16s ease-in-out infinite; }
+.icon-pin { animation: float-2 18s ease-in-out infinite; }
+.icon-waypoint { animation: float-3 20s ease-in-out infinite; }
+.icon-arrow { animation: float-4 22s ease-in-out infinite; }
+
+/* ---------- Nebula background ---------- */
+#nebula {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.2s ease-out;
+  opacity: 0.4;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(74,26,130,0.5), transparent 70%);
+  filter: blur(80px);
+  animation: drift1 18s ease-in-out infinite;
+}
+
+.blob-2 {
+  bottom: -15%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(74,144,226,0.35), transparent 70%);
+  filter: blur(90px);
+  animation: drift2 22s ease-in-out infinite;
+}
+
+.blob-3 {
+  top: 35%;
+  right: 20%;
+  width: 35vw;
+  height: 35vw;
+  background: radial-gradient(circle, rgba(245,166,35,0.2), transparent 70%);
+  filter: blur(70px);
+  animation: drift3 26s ease-in-out infinite;
+}
+
+.blob-4 {
+  bottom: 10%;
+  left: 15%;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle, rgba(80,227,194,0.18), transparent 70%);
+  filter: blur(75px);
+  animation: drift2 20s ease-in-out infinite;
+}
+
+.blob-5 {
+  top: 60%;
+  left: 60%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(147,51,234,0.16), transparent 70%);
+  filter: blur(85px);
+  animation: drift3 24s ease-in-out infinite;
+}
+
+.nebula-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(2,2,6,0.55) 100%);
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+}
+
+@keyframes shine { to { background-position: 200% center; } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-30px) scale(1.08); } }
+@keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,40px) scale(1.1); } }
+@keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,30px) scale(1.05); } }
+@keyframes dotPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes particleFloat { 0% { transform: translateY(0); opacity: 0.15; } 50% { opacity: 0.6; } 100% { transform: translateY(-120px); opacity: 0.05; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.fade-in { animation: fadeInUp 0.6s ease forwards; opacity: 0; }
+.shine-text { background-image: var(--gradient-tagline); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; }
+
+/* ---------- Navigation ---------- */
+.topnav {
+  position: relative;
+  z-index: 100;
+  background: rgba(5,5,10,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: var(--space-4) 0;
+  position: sticky;
+  top: 0;
+}
+
+.nav-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-fg-primary);
+  white-space: nowrap;
+}
+
+.logo-badge {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-badge svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-8);
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  color: var(--color-fg-secondary);
+  transition: color var(--transition-medium);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-fg-primary);
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-btn);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.btn-gold {
+  background: var(--gradient-btn-gold);
+  color: #000;
+  border-color: transparent;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245,166,35,0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-fg-primary);
+  border-color: var(--color-border);
+}
+
+.btn-ghost:hover {
+  background: var(--color-bg-ghost);
+  border-color: var(--color-border-focus);
+}
+
+.btn-nav {
+  white-space: nowrap;
+}
+
+/* ---------- Hero Section ---------- */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin: var(--space-6) 0 0;
+}
+
+.hero-desc {
+  max-width: 600px;
+  color: var(--color-fg-secondary);
+  font-weight: 300;
+  font-size: 1rem;
+  margin: var(--space-8) 0;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-8);
+}
+
+.hero-foot {
+  margin-top: var(--space-12);
+  color: var(--color-fg-subtle);
+}
+
+/* ---------- Cards Section ---------- */
+.cards-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  padding: var(--space-8);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin: var(--space-4) 0;
+  color: var(--color-fg-primary);
+}
+
+.card p {
+  margin: 0;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.pill-tag {
+  font-size: 0.65rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(80,227,194,0.1);
+  border: 1px solid rgba(80,227,194,0.3);
+  border-radius: var(--radius-pill);
+  color: var(--color-teal);
+}
+
+/* ---------- CTA Link ---------- */
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-teal);
+  font-weight: 500;
+  margin-top: var(--space-4);
+  text-decoration: none;
+  transition: gap var(--transition-medium);
+}
+
+.cta-link:hover {
+  gap: var(--space-3);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  position: relative;
+  z-index: 1;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.footer-brand {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: var(--space-4);
+    font-size: 0.75rem;
+  }
+
+  .nav-links a {
+    display: none;
+  }
+
+  .nav-links a:first-child,
+  .nav-links a:last-child {
+    display: inline;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cards-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation Icon Animations -->
+<div id="nav-icons" aria-hidden="true"></div>
+
+<!-- Nebula Background -->
+<div id="nebula" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+  <div class="nebula-vignette"></div>
+  <div class="blob blob-5"></div>
+  <div id="particles"></div>
+</div>
+
+<div class="page">
+
+  <!-- Navigation -->
+  <nav class="topnav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="logo-badge" aria-hidden="true">
+          <svg viewBox="0 0 200 200" width="22" height="22">
+            <defs>
+              <linearGradient id="cnIceNav" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e8f4ff"/>
+                <stop offset="45%" stop-color="#a8d8ff"/>
+                <stop offset="100%" stop-color="#5d8fc4"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#cnIceNav)" stroke-linecap="round">
+              <path d="M 151.4 38.7 A 80 80 0 1 0 151.4 161.3" stroke-width="13"/>
+              <path d="M 135.4 57.9 A 55 55 0 1 0 135.4 142.1" stroke-width="11"/>
+              <path d="M 119.3 77 A 30 30 0 1 0 119.3 123" stroke-width="9"/>
+            </g>
+            <path d="M 118 68 L 178 100 L 118 132 L 132 100 Z" fill="url(#cnIceNav)"/>
+          </svg>
+        </div>
+        <div class="brand-word">COMPASS ACCESS</div>
+      </div>
+      <div class="nav-links">
+        <a href="#features" data-nav="features">Features</a>
+        <a href="#technology" data-nav="technology">Technology</a>
+        <a href="#use-cases" data-nav="use-cases">Use Cases</a>
+      </div>
+      <button class="btn btn-gold btn-nav">Get Started</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-top fade-in" style="animation-delay:0.05s">
+      <div class="hero-logo" aria-hidden="true">
+        <svg viewBox="0 0 200 200" width="100%" height="100%">
+          <defs>
+            <linearGradient id="cnIceHero" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8f4ff"/>
+              <stop offset="45%" stop-color="#a8d8ff"/>
+              <stop offset="100%" stop-color="#5d8fc4"/>
+            </linearGradient>
+            <filter id="cnGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="4" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <g filter="url(#cnGlow)">
+            <g fill="none" stroke="url(#cnIceHero)" stroke-linecap="round">
+              <path d="M 151.4 38.7 A 80 80 0 1 0 151.4 161.3" stroke-width="13"/>
+              <path d="M 135.4 57.9 A 55 55 0 1 0 135.4 142.1" stroke-width="11"/>
+              <path d="M 119.3 77 A 30 30 0 1 0 119.3 123" stroke-width="9"/>
+            </g>
+            <path d="M 118 68 L 178 100 L 118 132 L 132 100 Z" fill="url(#cnIceHero)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="micro eyebrow">Navigation Intelligence · 2026</div>
+    </div>
+
+    <h1 class="hero-title shine-text fade-in" style="animation-delay:0.25s">Compass Access</h1>
+    <div class="hero-tagline shine-text fade-in" style="animation-delay:0.35s">Navigate · Connect · Optimize · Scale</div>
+
+    <p class="hero-desc fade-in" style="animation-delay:0.45s">
+      Enterprise-grade navigation intelligence platform. Real-time route optimization, advanced waypoint management, and intelligent navigation systems for transportation, logistics, and mobility operations.
+    </p>
+
+    <div class="hero-actions fade-in" style="animation-delay:0.55s">
+      <button class="btn btn-gold">✨ Explore Platform</button>
+      <button class="btn btn-ghost">Learn More</button>
+    </div>
+
+    <div class="micro hero-foot">Advanced Navigation Intelligence · From Operations to Optimization · 2024—2026</div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="label">Core Features</div>
+    <h2>Navigation Reimagined</h2>
+    <div class="grid-auto cards-3" style="display:grid">
+      <div class="panel panel-hover card">
+        <div class="micro" style="color:var(--color-amber)">Feature 01</div>
+        <h3>Real-Time Route Optimization</h3>
+        <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.85rem;margin:0">Dynamic routing powered by live traffic data and predictive algorithms for optimal journey efficiency.</p>
+        <div class="tag-list"><span class="pill-tag">AI-Powered</span><span class="pill-tag">Real-Time</span></div>
+      </div>
+      <div class="panel panel-hover card">
+        <div class="micro" style="color:var(--color-teal)">Feature 02</div>
+        <h3>Waypoint Intelligence</h3>
+        <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.85rem;margin:0">Intelligent waypoint sequencing, stop optimization, and multi-destination route planning for complex operations.</p>
+        <div class="tag-list"><span class="pill-tag">Multi-Stop</span><span class="pill-tag">Intelligent</span></div>
+      </div>
+      <div class="panel panel-hover card">
+        <div class="micro" style="color:var(--color-blue)">Feature 03</div>
+        <h3>Navigation Synchronization</h3>
+        <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.85rem;margin:0">Seamless coordination across multiple navigation systems with real-time fleet visibility and status updates.</p>
+        <div class="tag-list"><span class="pill-tag">Fleet-Ready</span><span class="pill-tag">Connected</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section id="technology" class="section" style="max-width:58rem">
+    <div class="label">Technology</div>
+    <h2>Built for Enterprise Operations</h2>
+
+    <div class="panel" style="background:linear-gradient(135deg, rgba(80,227,194,0.12), rgba(74,144,226,0.07));border:1px solid rgba(80,227,194,0.4)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+        <h3 style="color:var(--color-teal);font-size:1.15rem">Navigation Stack</h3>
+        <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.9rem;margin:0">Comprehensive navigation solution combining real-time data processing, route optimization engines, and intelligent waypoint management with enterprise-grade reliability.</p>
+        <div class="tag-list" style="margin-top:var(--space-4)">
+          <span class="pill-tag">Machine Learning</span>
+          <span class="pill-tag">Real-Time Processing</span>
+          <span class="pill-tag">Enterprise APIs</span>
+          <span class="pill-tag">99.9% Uptime SLA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section id="use-cases" class="section">
+    <div class="label">Use Cases</div>
+    <h2>Proven Solutions</h2>
+    <div class="grid-auto cards-3" style="display:grid">
+      <div class="panel panel-hover card">
+        <div class="micro" style="color:var(--color-amber)">Use Case 01</div>
+        <h3>Last-Mile Delivery</h3>
+        <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.85rem;margin:0">Optimize delivery routes across urban networks with real-time adaptation to traffic and customer preferences.</p>
+        <a href="#" class="cta-link">Learn More →</a>
+      </div>
+      <div class="panel panel-hover card">
+        <div class="micro" style="color:var(--color-teal)">Use Case 02</div>
+        <h3>Enterprise Mobility</h3>
+        <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.85rem;margin:0">Manage corporate transportation with intelligent scheduling, driver optimization, and passenger coordination.</p>
+        <a href="#" class="cta-link">Learn More →</a>
+      </div>
+      <div class="panel panel-hover card">
+        <div class="micro" style="color:var(--color-blue)">Use Case 03</div>
+        <h3>Fleet Operations</h3>
+        <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.85rem;margin:0">Scale fleet operations with real-time visibility, predictive maintenance, and performance analytics.</p>
+        <a href="#" class="cta-link">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">Compass Access</div>
+    <p style="color:var(--color-fg-secondary);font-weight:300;font-size:0.8rem;max-width:30rem">Navigation Intelligence Platform — Advanced routing, optimization, and fleet coordination for modern operations.</p>
+    <div class="footer-links micro">
+      <div style="color:var(--color-fg-subtle)">Compass Access · Navigate · Connect · Optimize · Scale</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Navigation Icon SVGs
+  var navigationIcons = {
+    compass: '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="compassGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#50e3c2"/><stop offset="100%" stop-color="#4a90e2"/></linearGradient></defs><circle cx="50" cy="50" r="45" fill="none" stroke="url(#compassGrad)" stroke-width="2"/><circle cx="50" cy="50" r="35" fill="none" stroke="url(#compassGrad)" stroke-width="1.5" opacity="0.6"/><path d="M 50 20 L 55 45 L 50 50 L 45 45 Z" fill="url(#compassGrad)"/><circle cx="50" cy="50" r="5" fill="url(#compassGrad)"/></svg>',
+    pin: '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pinGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f5a623"/><stop offset="100%" stop-color="#d2691e"/></linearGradient></defs><path d="M 50 15 C 35 15 25 25 25 40 C 25 60 50 85 50 85 C 50 85 75 60 75 40 C 75 25 65 15 50 15 Z" fill="url(#pinGrad)"/><circle cx="50" cy="40" r="8" fill="#ffffff"/></svg>',
+    waypoint: '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="waypointGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9333ea"/><stop offset="100%" stop-color="#6366f1"/></linearGradient></defs><rect x="30" y="30" width="40" height="40" fill="none" stroke="url(#waypointGrad)" stroke-width="2" rx="4"/><circle cx="50" cy="50" r="6" fill="url(#waypointGrad)"/><rect x="38" y="38" width="24" height="24" fill="none" stroke="url(#waypointGrad)" stroke-width="1" opacity="0.5" rx="2"/></svg>',
+    arrow: '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a8d8ff"/><stop offset="100%" stop-color="#50e3c2"/></linearGradient></defs><path d="M 50 20 L 70 50 L 55 50 L 55 80 L 45 80 L 45 50 L 30 50 Z" fill="url(#arrowGrad)"/></svg>'
+  };
+
+  function buildNavigationIcons() {
+    var host = document.getElementById('nav-icons');
+    if (!host || prefersReducedMotion) return;
+
+    var positions = [
+      { x: '10%', y: '15%', icon: 'compass', delay: 0 },
+      { x: '85%', y: '25%', icon: 'pin', delay: 1 },
+      { x: '20%', y: '70%', icon: 'waypoint', delay: 2 },
+      { x: '75%', y: '60%', icon: 'arrow', delay: 3 },
+      { x: '15%', y: '45%', icon: 'compass', delay: 4 },
+      { x: '80%', y: '80%', icon: 'pin', delay: 5 },
+      { x: '50%', y: '20%', icon: 'waypoint', delay: 6 },
+      { x: '35%', y: '85%', icon: 'arrow', delay: 7 }
+    ];
+
+    var animationClasses = ['icon-compass', 'icon-pin', 'icon-waypoint', 'icon-arrow'];
+
+    positions.forEach(function (pos, idx) {
+      var iconDiv = document.createElement('div');
+      iconDiv.className = 'nav-icon ' + animationClasses[idx % animationClasses.length];
+      iconDiv.style.left = pos.x;
+      iconDiv.style.top = pos.y;
+      iconDiv.style.animationDelay = (pos.delay * 0.5) + 's';
+      iconDiv.innerHTML = navigationIcons[pos.icon];
+      host.appendChild(iconDiv);
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildNavigationIcons);
+  } else {
+    buildNavigationIcons();
+  }
+
+  // Smooth scroll for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      var target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
