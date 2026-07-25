@@ -296,11 +296,40 @@ main{position:relative;z-index:1}
 .btn-cta-outline:hover{color:var(--text);background:rgba(255,255,255,.07)}
 .btn-cta-outline:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
 
+/* ── Live badge (hero eyebrow) ───────────── */
+.live-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px 3px 7px;border-radius:var(--radius-pill);background:rgba(17,194,173,.10);border:1px solid rgba(17,194,173,.22);font-size:10px;color:var(--teal);letter-spacing:.04em;text-decoration:none;margin-left:10px;transition:background .2s,border-color .2s,box-shadow .2s;vertical-align:middle}
+.live-badge:hover{background:rgba(17,194,173,.16);border-color:rgba(17,194,173,.38);box-shadow:0 0 12px rgba(17,194,173,.12)}
+.live-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:coord-pulse 2s infinite;flex-shrink:0}
+
+/* ── Live site strip ─────────────────────── */
+.live-strip{position:relative;z-index:1;padding:0 24px 72px}
+.live-strip-inner{max-width:1100px;margin:0 auto}
+.live-card{display:flex;align-items:center;gap:28px;padding:32px 40px;background:linear-gradient(135deg,rgba(17,194,173,.06) 0%,rgba(232,159,26,.04) 100%);border:1px solid rgba(17,194,173,.14);border-radius:20px;position:relative;overflow:hidden;flex-wrap:wrap}
+.live-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.018) 0%,transparent 55%);border-radius:inherit;pointer-events:none}
+.live-card-icon{width:52px;height:52px;border-radius:50%;background:rgba(17,194,173,.08);border:1px solid rgba(17,194,173,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.live-card-body{flex:1;min-width:180px;position:relative;z-index:1}
+.live-card-eyebrow{display:flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
+.live-card-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulsering 2s ease-out infinite;box-shadow:0 0 0 0 rgba(17,194,173,.4)}
+.live-card-h{font-family:var(--f-display);font-size:clamp(18px,2.5vw,26px);font-weight:400;letter-spacing:-.01em;color:var(--text);margin-bottom:6px;line-height:1.2}
+.live-card-h a{color:var(--teal);text-decoration:none;transition:opacity .2s}
+.live-card-h a:hover{opacity:.8}
+.live-card-p{font-size:13.5px;color:var(--text-2);line-height:1.6}
+.live-card-actions{display:flex;align-items:center;gap:12px;flex-shrink:0;flex-wrap:wrap}
+.btn-live{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:12px;font-size:14px;font-weight:600;color:#040210;background:linear-gradient(130deg,var(--teal) 0%,#0E7C99 100%);transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(17,194,173,.28);cursor:pointer;text-decoration:none}
+.btn-live:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(17,194,173,.38)}
+.btn-live:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.btn-live-ghost{display:inline-flex;align-items:center;gap:7px;padding:11px 18px;border-radius:12px;font-size:13.5px;font-weight:500;color:var(--text-2);border:1px solid var(--border);background:rgba(255,255,255,.03);transition:color .2s,background .2s;cursor:pointer;text-decoration:none;font-family:var(--f-mono);letter-spacing:.04em}
+.btn-live-ghost:hover{color:var(--teal);background:rgba(17,194,173,.06);border-color:rgba(17,194,173,.2)}
+.btn-live-ghost:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
 /* ── Footer ──────────────────────────────── */
 .site-footer{position:relative;z-index:1;padding:44px 24px;border-top:1px solid var(--border)}
 .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;flex-wrap:wrap;gap:28px}
 .footer-brand{flex:1;min-width:140px}
 .footer-tag{font-size:12px;color:var(--fog-2);margin-top:5px}
+.footer-live-link{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--teal);text-decoration:none;margin-top:5px;font-family:var(--f-mono);letter-spacing:.04em;transition:opacity .2s}
+.footer-live-link:hover{opacity:.75}
+.footer-live-link-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:coord-pulse 2s infinite}
 .footer-nav{display:flex;gap:22px;flex-wrap:wrap}
 .footer-nav a{font-size:12.5px;color:var(--fog);transition:color .2s}
 .footer-nav a:hover{color:var(--text)}
@@ -361,7 +390,7 @@ main{position:relative;z-index:1}
 <header class="nav-wrap" role="banner">
   <nav class="nav-pill" aria-label="Main navigation">
 
-    <a href="#" class="nav-brand" aria-label="Compass Nexus home">
+    <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="nav-brand" aria-label="Compass Nexus home — visit compassnai.com" target="_blank" rel="noopener">
       <div class="compass-badge">
         <svg class="compass-svg-nav" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
@@ -427,8 +456,8 @@ main{position:relative;z-index:1}
           <line x1="4.1" y1="11.9" x2="3.05" y2="12.95"/>
         </svg>
       </button>
-      <a href="#" class="btn-ghost-sm">Sign In</a>
-      <a href="#" class="btn-nav-cta">Get Started</a>
+      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-ghost-sm" target="_blank" rel="noopener">Sign In</a>
+      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-nav-cta" target="_blank" rel="noopener">Get Started</a>
     </div>
 
     <button class="nav-mobile-btn" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -441,7 +470,7 @@ main{position:relative;z-index:1}
     <a href="#features" class="mobile-link">Features</a>
     <a href="#metrics" class="mobile-link">Metrics</a>
     <a href="#pricing" class="mobile-link">Pricing</a>
-    <a href="#" class="mobile-link">Get Started →</a>
+    <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="mobile-link" target="_blank" rel="noopener">Get Started → compassnai.com</a>
   </div>
 </header>
 
@@ -453,7 +482,7 @@ main{position:relative;z-index:1}
   <div class="hero-inner">
 
     <div class="hero-copy">
-      <div class="hero-eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Navigation Intelligence Platform</div>
+      <div class="hero-eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Navigation Intelligence Platform<a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="live-badge" target="_blank" rel="noopener" aria-label="Visit compassnai.com live site"><span class="live-badge-dot" aria-hidden="true"></span>compassnai.com</a></div>
 
       <h1 class="hero-h1" id="hero-h1">
         <span class="h1-line-1">Navigate</span>
@@ -464,11 +493,11 @@ main{position:relative;z-index:1}
       <p class="hero-body">Compass Nexus fuses real-time spatial intelligence with adaptive signal processing to guide decisions through complexity. Built for teams that refuse to drift.</p>
 
       <div class="hero-cta">
-        <a href="#" class="btn-primary-lg">
+        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-primary-lg" target="_blank" rel="noopener">
           Start Navigating
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#" class="btn-ghost-lg" aria-label="Watch product demo">
+        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-ghost-lg" aria-label="Watch product demo" target="_blank" rel="noopener">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="1.3"/><polygon points="6,4.5 11.5,7.5 6,10.5" fill="currentColor"/></svg>
           Watch demo
         </a>
@@ -690,8 +719,8 @@ main{position:relative;z-index:1}
       <h2 class="cta-h" id="cta-h">Ready to find <em>true north?</em></h2>
       <p class="cta-p">Join 12,000 navigators already moving with precision. No credit card required. Full platform access from day one.</p>
       <div class="cta-btns">
-        <a href="#" class="btn-cta">Start for free</a>
-        <a href="#" class="btn-cta-outline">Talk to sales →</a>
+        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-cta" target="_blank" rel="noopener">Start for free</a>
+        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-cta-outline" target="_blank" rel="noopener">Visit compassnai.com →</a>
       </div>
     </div>
   </div>
@@ -700,23 +729,69 @@ main{position:relative;z-index:1}
 </main>
 
 <!-- ══════════════════════════════════════════
+     LIVE SITE STRIP — compassnai.com
+══════════════════════════════════════════════ -->
+<section class="live-strip" aria-labelledby="live-strip-h">
+  <div class="live-strip-inner">
+    <div class="live-card">
+      <div class="live-card-icon" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="13" cy="13" r="11" stroke="#11C2AD" stroke-width=".8" opacity=".4"/>
+          <circle cx="13" cy="13" r="7.5" stroke="#11C2AD" stroke-width=".5" stroke-dasharray="2 5" opacity=".5"/>
+          <polygon points="13,4 14.5,12 13,10.5 11.5,12" fill="#11C2AD"/>
+          <polygon points="13,22 14.5,14 13,15.5 11.5,14" fill="#E89F1A" opacity=".7"/>
+          <circle cx="13" cy="13" r="2" fill="#11C2AD" opacity=".6"/>
+          <circle cx="13" cy="13" r="1" fill="#ECE8FF"/>
+        </svg>
+      </div>
+      <div class="live-card-body">
+        <div class="live-card-eyebrow">
+          <span class="live-card-dot" aria-hidden="true"></span>
+          Live Platform
+        </div>
+        <h2 class="live-card-h" id="live-strip-h">
+          Experience it at
+          <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener">www.compassnai.com</a>
+        </h2>
+        <p class="live-card-p">The full Compass Nexus platform — butterfly canvas, live coordinate navigation, dark cinematic design, animated metrics, and the bento feature grid — is live and interactive. No sign-up required.</p>
+      </div>
+      <div class="live-card-actions">
+        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-live" target="_blank" rel="noopener">
+          Open Live Site
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-live-ghost" target="_blank" rel="noopener">
+          compassnai.com
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5.5M9 2V5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════════ -->
 <footer class="site-footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="brand-wordmark">COMPASS <span class="accent">NEXUS</span></span>
+      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener" style="text-decoration:none"><span class="brand-wordmark">COMPASS <span class="accent">NEXUS</span></span></a>
       <p class="footer-tag">Navigate the future with precision.</p>
+      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="footer-live-link" target="_blank" rel="noopener" aria-label="Visit compassnai.com">
+        <span class="footer-live-link-dot" aria-hidden="true"></span>
+        www.compassnai.com
+      </a>
     </div>
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="#">Platform</a>
-      <a href="#">Pricing</a>
-      <a href="#">Docs</a>
-      <a href="#">Blog</a>
+      <a href="#features">Platform</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener">Live Site</a>
+      <a href="#features">Features</a>
+      <a href="#metrics">Metrics</a>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
     </nav>
-    <p class="footer-copy">© 2026 Compass Nexus. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Compass Nexus — <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em">www.compassnai.com</a> — All rights reserved.</p>
   </div>
 </footer>
 
