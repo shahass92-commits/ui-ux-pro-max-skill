@@ -1,1003 +1,605 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en-IN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COMPASS NEXUS — Navigate the Future</title>
-<style>
-/* ── Token Layer ─────────────────────────── */
-:root {
-  --void:      #060414;
-  --surface:   #0E0C22;
-  --surface-2: #17152F;
-  --border:    rgba(255,255,255,0.07);
-  --amber:     #E89F1A;
-  --amber-dim: rgba(232,159,26,0.15);
-  --teal:      #11C2AD;
-  --teal-dim:  rgba(17,194,173,0.12);
-  --mist:      #ECE8FF;
-  --fog:       #6B6282;
-  --fog-2:     #342F52;
-  --text:      var(--mist);
-  --text-2:    var(--fog);
-  --bg:        var(--void);
-  --card:      var(--surface);
-  --glass:     rgba(8,6,24,0.72);
-  --radius-pill: 999px;
-  --radius-card: 18px;
-  --radius-sm:   10px;
-  --ease-out: cubic-bezier(0.16,1,0.3,1);
-  --ease-in:  cubic-bezier(0.7,0,0.84,0);
-  --f-display: ui-serif, 'New York', Georgia, 'Times New Roman', serif;
-  --f-body:    system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
-  --f-mono:    ui-monospace, 'Courier New', Consolas, monospace;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Compass Nexus iQ</title>
+<meta name="description" content="Compass Nexus iQ runs corporate employee transportation end to end for Compass Travel &amp; Transportation, Thiruvananthapuram: booking, vehicles, drivers, live trips, trip verification, invoicing and payment tracking in one auditable record.">
+<meta name="theme-color" content="#0B1B33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Compass Travel & Transportation",
+  "alternateName": "Compass Nexus iQ",
+  "description": "Technology-enabled employee transportation for IT companies, corporate campuses, industrial organisations and ports.",
+  "url": "https://www.compassnai.com",
+  "email": "navigation@compassnai.com",
+  "telephone": ["+91-9995881477", "+91-8590011477"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "TC 35/1044-1, Shadiya Manzil, Gandhi Nagar, Vallakadavu P.O.",
+    "addressLocality": "Thiruvananthapuram",
+    "addressRegion": "Kerala",
+    "postalCode": "695008",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 8.5241, "longitude": 76.9366 },
+  "areaServed": "Thiruvananthapuram, Kerala"
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --void:      #F5F3FF;
-    --surface:   #FFFFFF;
-    --surface-2: #EDEAF8;
-    --border:    rgba(60,40,120,0.10);
-    --fog:       #7B7496;
-    --fog-2:     #DDD9F0;
-    --mist:      #18143A;
-    --glass:     rgba(240,237,255,0.82);
-    --text:      #18143A;
-    --text-2:    #7B7496;
-    --bg:        #F5F3FF;
-    --card:      #FFFFFF;
-  }
-}
-:root[data-theme="light"] {
-  --void:      #F5F3FF;
-  --surface:   #FFFFFF;
-  --surface-2: #EDEAF8;
-  --border:    rgba(60,40,120,0.10);
-  --fog:       #7B7496;
-  --fog-2:     #DDD9F0;
-  --mist:      #18143A;
-  --glass:     rgba(240,237,255,0.82);
-  --text:      #18143A;
-  --text-2:    #7B7496;
-  --bg:        #F5F3FF;
-  --card:      #FFFFFF;
-}
-:root[data-theme="dark"] {
-  --void:      #060414;
-  --surface:   #0E0C22;
-  --surface-2: #17152F;
-  --border:    rgba(255,255,255,0.07);
-  --amber:     #E89F1A;
-  --amber-dim: rgba(232,159,26,0.15);
-  --teal:      #11C2AD;
-  --teal-dim:  rgba(17,194,173,0.12);
-  --mist:      #ECE8FF;
-  --fog:       #6B6282;
-  --fog-2:     #342F52;
-  --text:      var(--mist);
-  --text-2:    var(--fog);
-  --bg:        var(--void);
-  --card:      var(--surface);
-  --glass:     rgba(8,6,24,0.72);
-}
-
-/* ── Reset ───────────────────────────────── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-html{scroll-behavior:smooth}
-body{font-family:var(--f-body);background:var(--bg);color:var(--text);min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-img,svg{display:block}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-
-/* ── Background layers ───────────────────── */
-#butterfly-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-
-.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.glow{position:absolute;border-radius:50%;filter:blur(90px);animation:glow-drift 22s ease-in-out infinite alternate}
-.glow-1{width:700px;height:700px;top:-200px;left:-200px;background:radial-gradient(circle,rgba(167,110,250,.10) 0%,transparent 70%);animation-delay:0s}
-.glow-2{width:500px;height:500px;top:30%;right:-100px;background:radial-gradient(circle,rgba(17,194,173,.08) 0%,transparent 70%);animation-delay:-7s;animation-duration:18s}
-.glow-3{width:400px;height:400px;bottom:10%;left:15%;background:radial-gradient(circle,rgba(232,159,26,.06) 0%,transparent 70%);animation-delay:-14s;animation-duration:26s}
-@keyframes glow-drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(50px,35px) scale(1.08)}}
-
-/* ── Nav ─────────────────────────────────── */
-.nav-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;flex-direction:column;align-items:center;padding:14px 16px 0;pointer-events:none}
-.nav-pill{width:min(1020px,100%);display:flex;align-items:center;gap:6px;padding:8px 10px 8px 14px;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-pill);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 8px 40px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.3);pointer-events:all;transition:box-shadow .3s var(--ease-out)}
-
-/* Brand */
-.nav-brand{display:flex;align-items:center;gap:10px;flex-shrink:0;cursor:pointer}
-.compass-badge{width:34px;height:34px;border-radius:50%;background:var(--amber-dim);border:1px solid rgba(232,159,26,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,border-color .2s,box-shadow .3s}
-.nav-brand:hover .compass-badge{background:rgba(232,159,26,.2);border-color:rgba(232,159,26,.38);box-shadow:0 0 18px rgba(232,159,26,.22)}
-.compass-svg-nav{width:24px;height:24px}
-.brand-wordmark{font-family:var(--f-body);font-size:12.5px;font-weight:700;letter-spacing:.12em;color:var(--text)}
-.brand-wordmark .accent{color:var(--teal)}
-
-/* Coordinate display — the unique nav element */
-.nav-coord{display:flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:10.5px;color:var(--fog);letter-spacing:.06em;padding:0 12px;border-left:1px solid var(--border);border-right:1px solid var(--border);margin:0 6px}
-.coord-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:coord-pulse 2.5s ease-in-out infinite}
-@keyframes coord-pulse{0%,100%{opacity:1}50%{opacity:.35}}
-
-/* Links */
-.nav-links{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
-.nav-link{display:inline-flex;align-items:center;padding:7px 13px;border-radius:var(--radius-pill);font-size:13.5px;font-weight:500;color:var(--text-2);transition:color .2s,background .2s;cursor:pointer;white-space:nowrap}
-.nav-link:hover{color:var(--text);background:rgba(255,255,255,.06)}
-.nav-link:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-
-/* Nav actions */
-.nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.btn-ghost-sm{padding:7px 15px;border-radius:var(--radius-pill);font-size:13.5px;font-weight:500;color:var(--text-2);transition:color .2s,background .2s;cursor:pointer;white-space:nowrap}
-.btn-ghost-sm:hover{color:var(--text);background:rgba(255,255,255,.06)}
-.btn-nav-cta{padding:8px 18px;border-radius:var(--radius-pill);font-size:13.5px;font-weight:600;color:#040210;background:linear-gradient(130deg,var(--amber) 0%,#F0720A 100%);transition:opacity .2s,transform .15s,box-shadow .2s;cursor:pointer;white-space:nowrap;box-shadow:0 2px 14px rgba(232,159,26,.32)}
-.btn-nav-cta:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 22px rgba(232,159,26,.42)}
-.btn-nav-cta:active{transform:translateY(0)}
-.btn-nav-cta:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
-
-/* Mobile toggle */
-.nav-mobile-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;border-radius:8px}
-.nav-mobile-btn span{display:block;width:18px;height:1.5px;background:var(--fog);transition:transform .2s,opacity .2s}
-.nav-mobile-btn:hover span{background:var(--text)}
-.nav-mobile-btn[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg) translate(4.7px,4.7px)}
-.nav-mobile-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
-.nav-mobile-btn[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg) translate(4.7px,-4.7px)}
-
-/* Mobile dropdown */
-.mobile-menu{display:none;flex-direction:column;width:min(1020px,calc(100vw - 32px));margin-top:8px;background:var(--glass);border:1px solid var(--border);border-radius:20px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);overflow:hidden;pointer-events:all}
-.mobile-menu.open{display:flex}
-.mobile-link{padding:13px 22px;font-size:14px;color:var(--text-2);border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s,background .2s;cursor:pointer}
-.mobile-link:hover{color:var(--text);background:rgba(255,255,255,.04)}
-.mobile-link:last-child{border-bottom:none;color:var(--amber);font-weight:600}
-
-/* Theme toggle */
-.theme-toggle{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;flex-shrink:0}
-.theme-toggle:hover{background:rgba(255,255,255,.1)}
-.theme-toggle svg{width:14px;height:14px;stroke:var(--fog);transition:stroke .2s}
-.theme-toggle:hover svg{stroke:var(--text)}
-
-/* ── Main content offset ─────────────────── */
-main{position:relative;z-index:1}
-
-/* ── Hero ────────────────────────────────── */
-.hero{min-height:100dvh;display:flex;align-items:center;padding:100px 24px 80px}
-.hero-inner{max-width:1160px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:28px;animation:fade-up .6s var(--ease-out) .1s both}
-.eyebrow-line{width:24px;height:1px;background:var(--teal);opacity:.6}
-
-.hero-h1{font-family:var(--f-display);font-size:clamp(40px,5.5vw,72px);font-weight:400;line-height:1.07;letter-spacing:-.015em;margin-bottom:26px;text-wrap:balance}
-.h1-line-1{display:block;animation:fade-up .65s var(--ease-out) .2s both}
-.h1-line-2{display:block;font-style:italic;background:linear-gradient(120deg,var(--amber) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fade-up .65s var(--ease-out) .32s both}
-.h1-line-3{display:block;animation:fade-up .65s var(--ease-out) .42s both}
-
-.hero-body{font-size:17px;line-height:1.7;color:var(--text-2);max-width:420px;margin-bottom:36px;animation:fade-up .6s var(--ease-out) .52s both}
-
-.hero-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:52px;animation:fade-up .6s var(--ease-out) .62s both}
-.btn-primary-lg{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:14px;font-size:15px;font-weight:600;color:#040210;background:linear-gradient(130deg,var(--amber) 0%,#F07010 100%);transition:transform .2s var(--ease-out),box-shadow .2s;box-shadow:0 4px 24px rgba(232,159,26,.36);cursor:pointer}
-.btn-primary-lg:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(232,159,26,.45)}
-.btn-primary-lg:active{transform:translateY(0)}
-.btn-primary-lg:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
-.btn-ghost-lg{display:inline-flex;align-items:center;gap:7px;padding:13px 20px;border-radius:14px;font-size:15px;font-weight:500;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid var(--border);transition:color .2s,background .2s,transform .2s;cursor:pointer}
-.btn-ghost-lg:hover{color:var(--text);background:rgba(255,255,255,.08);transform:translateY(-1px)}
-.btn-ghost-lg:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-
-/* Stats */
-.hero-stats{display:flex;gap:0;animation:fade-up .6s var(--ease-out) .72s both}
-.stat{padding:0 28px 0 0;display:flex;flex-direction:column;gap:4px}
-.stat:first-child{padding-left:0}
-.stat-num{font-family:var(--f-display);font-size:30px;font-weight:400;line-height:1;color:var(--text)}
-.stat-num .unit{font-size:18px;color:var(--teal);font-style:italic}
-.stat-lbl{font-size:11.5px;color:var(--fog);letter-spacing:.04em}
-.stat-div{width:1px;background:var(--border);align-self:stretch;margin:4px 28px 4px 0}
-
-/* Hero visual */
-.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;animation:fade-up .8s var(--ease-out) .3s both}
-
-.orb-wrap{position:relative;width:360px;height:360px;display:flex;align-items:center;justify-content:center}
-.orb-ring{position:absolute;border-radius:50%;border:1px solid rgba(232,159,26,.07);animation:orb-pulse 5s ease-in-out infinite}
-.orb-ring-1{inset:0;animation-delay:0s}
-.orb-ring-2{inset:-18px;animation-delay:.8s;opacity:.6}
-.orb-ring-3{inset:-36px;animation-delay:1.6s;opacity:.3}
-@keyframes orb-pulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.04);opacity:.35}}
-
-.orb-body{width:280px;height:280px;border-radius:50%;background:radial-gradient(ellipse at 38% 32%,rgba(167,110,250,.1) 0%,rgba(17,194,173,.06) 40%,rgba(8,6,24,.95) 72%);border:1px solid rgba(232,159,26,.12);box-shadow:0 0 70px rgba(167,110,250,.07),0 0 140px rgba(17,194,173,.04),inset 0 1px 0 rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center}
-.orb-svg{width:210px;height:210px;animation:spin-compass 26s linear infinite}
-
-/* Float cards */
-.fcard{position:absolute;display:flex;align-items:center;gap:9px;padding:9px 14px;background:var(--glass);border:1px solid var(--border);border-radius:13px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 4px 22px rgba(0,0,0,.38);font-size:12px}
-.fcard-1{top:28px;right:-10px;animation:fc-float-1 6s ease-in-out infinite}
-.fcard-2{bottom:48px;left:-24px;animation:fc-float-2 7s ease-in-out infinite}
-.fcard-3{top:50%;right:-36px;transform:translateY(-50%);animation:fc-float-3 5s ease-in-out infinite}
-@keyframes fc-float-1{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-@keyframes fc-float-2{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
-@keyframes fc-float-3{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(-5px)}}
-
-.fc-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.fc-dot-amber{background:var(--amber);box-shadow:0 0 6px rgba(232,159,26,.5)}
-.fc-dot-teal{background:var(--teal);animation:coord-pulse 2s infinite}
-.fc-dot-live{background:var(--teal);animation:pulsering 2s ease-out infinite;box-shadow:0 0 0 0 rgba(17,194,173,.4)}
-@keyframes pulsering{0%{box-shadow:0 0 0 0 rgba(17,194,173,.4)}70%{box-shadow:0 0 0 8px rgba(17,194,173,0)}100%{box-shadow:0 0 0 0 rgba(17,194,173,0)}}
-
-.fc-name{font-weight:600;color:var(--text);font-size:12px}
-.fc-sub{color:var(--fog);font-size:11px;margin-top:1px}
-
-/* Scroll cue */
-.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fog-2);animation:fade-up 1s var(--ease-out) 1.4s both}
-.scroll-cue-line{width:1px;height:36px;background:linear-gradient(to bottom,transparent,var(--fog-2));animation:scroll-cue-anim 2s ease-in-out infinite}
-@keyframes scroll-cue-anim{0%,100%{opacity:.3}50%{opacity:.7}}
-
-/* ── Features ────────────────────────────── */
-.section{position:relative;z-index:1;padding:100px 24px}
-.section-inner{max-width:1100px;margin:0 auto}
-
-.section-eye{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
-.section-eye::before{content:'';display:block;width:18px;height:1px;background:var(--teal);opacity:.5}
-
-.section-h2{font-family:var(--f-display);font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.15;letter-spacing:-.015em;margin-bottom:52px;max-width:580px;text-wrap:balance}
-.section-h2 em{font-style:italic;color:var(--teal)}
-
-/* Bento */
-.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.bcard{padding:26px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;position:relative;cursor:default;transition:background .25s var(--ease-out),border-color .25s,box-shadow .25s,transform .25s;opacity:0;transform:translateY(22px)}
-.bcard.revealed{opacity:1;transform:translateY(0);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out),background .25s,border-color .25s,box-shadow .25s}
-.bcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,transparent 60%);border-radius:inherit;pointer-events:none}
-.bcard:hover{background:var(--surface-2);border-color:rgba(255,255,255,.11);box-shadow:0 8px 36px rgba(0,0,0,.28);transform:translateY(-2px)}
-.bcard:hover .bcard-chevron{opacity:1;transform:translateX(3px)}
-
-.bcard-wide{grid-column:span 2}
-.bcard-tall{grid-row:span 2}
-.bcard-accent{background:linear-gradient(135deg,rgba(17,194,173,.07) 0%,var(--surface) 100%);border-color:rgba(17,194,173,.1)}
-.bcard-accent:hover{border-color:rgba(17,194,173,.2);box-shadow:0 8px 36px rgba(17,194,173,.07)}
-
-.bcard-icon{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.bcard-h{font-family:var(--f-display);font-size:17px;font-weight:400;line-height:1.3;color:var(--text);margin-bottom:9px;letter-spacing:-.01em}
-.bcard-p{font-size:13.5px;line-height:1.65;color:var(--text-2)}
-.bcard-chevron{position:absolute;bottom:22px;right:22px;opacity:0;transition:opacity .2s,transform .2s;color:var(--fog)}
-
-/* Mini bar chart */
-.mini-chart{display:flex;align-items:flex-end;gap:3px;height:52px;margin-top:22px}
-.bar{flex:1;border-radius:2px 2px 0 0;background:rgba(255,255,255,.07);transition:background .2s}
-.bar.hi{background:rgba(17,194,173,.45)}
-.bcard:hover .bar.hi{background:rgba(17,194,173,.65)}
-.bcard:hover .bar{background:rgba(255,255,255,.11)}
-
-/* Avatar stack */
-.av-stack{display:flex;margin-top:28px}
-.av{width:30px;height:30px;border-radius:50%;border:2px solid var(--card);margin-left:-8px;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7)}
-.av:first-child{margin-left:0}
-.av-a{background:linear-gradient(135deg,#a78bfa,#7c3aed)}
-.av-b{background:linear-gradient(135deg,#E89F1A,#d97706)}
-.av-c{background:linear-gradient(135deg,#11C2AD,#0d9488)}
-.av-d{background:rgba(255,255,255,.08);color:var(--fog);font-size:9px}
-
-/* ── Metrics ─────────────────────────────── */
-.metrics-section{position:relative;z-index:1;padding:0 24px 0}
-.metrics-inner{max-width:1100px;margin:0 auto;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.metric{padding:48px 40px;border-right:1px solid var(--border);text-align:center}
-.metric:last-child{border-right:none}
-.metric-n{font-family:var(--f-display);font-size:clamp(36px,4vw,54px);font-weight:400;line-height:1;letter-spacing:-.02em;background:linear-gradient(120deg,var(--amber) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;font-variant-numeric:tabular-nums}
-.metric-l{font-size:12.5px;color:var(--fog);letter-spacing:.03em}
-
-/* ── CTA band ────────────────────────────── */
-.cta-section{position:relative;z-index:1;padding:100px 24px}
-.cta-inner{max-width:1100px;margin:0 auto;background:linear-gradient(135deg,rgba(167,110,250,.08) 0%,rgba(17,194,173,.05) 50%,rgba(232,159,26,.04) 100%);border:1px solid rgba(167,110,250,.12);border-radius:24px;padding:64px;display:flex;align-items:center;gap:52px;position:relative;overflow:hidden}
-.cta-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.025) 0%,transparent 60%);border-radius:inherit;pointer-events:none}
-.cta-compass{width:76px;height:76px;flex-shrink:0;opacity:.5;animation:spin-compass 20s linear infinite}
-.cta-body{flex:1;position:relative;z-index:1}
-.cta-h{font-family:var(--f-display);font-size:clamp(24px,3.5vw,40px);font-weight:400;line-height:1.2;letter-spacing:-.015em;margin-bottom:12px;text-wrap:balance}
-.cta-h em{font-style:italic;color:var(--amber)}
-.cta-p{font-size:15.5px;color:var(--text-2);margin-bottom:28px;line-height:1.65}
-.cta-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-cta{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;border-radius:12px;font-size:14.5px;font-weight:600;color:#040210;background:linear-gradient(130deg,var(--amber) 0%,#F07010 100%);transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(232,159,26,.3);cursor:pointer}
-.btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,159,26,.4)}
-.btn-cta:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
-.btn-cta-outline{display:inline-flex;align-items:center;gap:7px;padding:12px 20px;border-radius:12px;font-size:14.5px;font-weight:500;color:var(--text-2);border:1px solid var(--border);background:rgba(255,255,255,.03);transition:color .2s,background .2s;cursor:pointer}
-.btn-cta-outline:hover{color:var(--text);background:rgba(255,255,255,.07)}
-.btn-cta-outline:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-
-/* ── Live badge (hero eyebrow) ───────────── */
-.live-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px 3px 7px;border-radius:var(--radius-pill);background:rgba(17,194,173,.10);border:1px solid rgba(17,194,173,.22);font-size:10px;color:var(--teal);letter-spacing:.04em;text-decoration:none;margin-left:10px;transition:background .2s,border-color .2s,box-shadow .2s;vertical-align:middle}
-.live-badge:hover{background:rgba(17,194,173,.16);border-color:rgba(17,194,173,.38);box-shadow:0 0 12px rgba(17,194,173,.12)}
-.live-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:coord-pulse 2s infinite;flex-shrink:0}
-
-/* ── Live site strip ─────────────────────── */
-.live-strip{position:relative;z-index:1;padding:0 24px 72px}
-.live-strip-inner{max-width:1100px;margin:0 auto}
-.live-card{display:flex;align-items:center;gap:28px;padding:32px 40px;background:linear-gradient(135deg,rgba(17,194,173,.06) 0%,rgba(232,159,26,.04) 100%);border:1px solid rgba(17,194,173,.14);border-radius:20px;position:relative;overflow:hidden;flex-wrap:wrap}
-.live-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.018) 0%,transparent 55%);border-radius:inherit;pointer-events:none}
-.live-card-icon{width:52px;height:52px;border-radius:50%;background:rgba(17,194,173,.08);border:1px solid rgba(17,194,173,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.live-card-body{flex:1;min-width:180px;position:relative;z-index:1}
-.live-card-eyebrow{display:flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
-.live-card-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulsering 2s ease-out infinite;box-shadow:0 0 0 0 rgba(17,194,173,.4)}
-.live-card-h{font-family:var(--f-display);font-size:clamp(18px,2.5vw,26px);font-weight:400;letter-spacing:-.01em;color:var(--text);margin-bottom:6px;line-height:1.2}
-.live-card-h a{color:var(--teal);text-decoration:none;transition:opacity .2s}
-.live-card-h a:hover{opacity:.8}
-.live-card-p{font-size:13.5px;color:var(--text-2);line-height:1.6}
-.live-card-actions{display:flex;align-items:center;gap:12px;flex-shrink:0;flex-wrap:wrap}
-.btn-live{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:12px;font-size:14px;font-weight:600;color:#040210;background:linear-gradient(130deg,var(--teal) 0%,#0E7C99 100%);transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(17,194,173,.28);cursor:pointer;text-decoration:none}
-.btn-live:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(17,194,173,.38)}
-.btn-live:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-.btn-live-ghost{display:inline-flex;align-items:center;gap:7px;padding:11px 18px;border-radius:12px;font-size:13.5px;font-weight:500;color:var(--text-2);border:1px solid var(--border);background:rgba(255,255,255,.03);transition:color .2s,background .2s;cursor:pointer;text-decoration:none;font-family:var(--f-mono);letter-spacing:.04em}
-.btn-live-ghost:hover{color:var(--teal);background:rgba(17,194,173,.06);border-color:rgba(17,194,173,.2)}
-.btn-live-ghost:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-
-/* ── Footer ──────────────────────────────── */
-.site-footer{position:relative;z-index:1;padding:44px 24px;border-top:1px solid var(--border)}
-.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;flex-wrap:wrap;gap:28px}
-.footer-brand{flex:1;min-width:140px}
-.footer-tag{font-size:12px;color:var(--fog-2);margin-top:5px}
-.footer-live-link{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--teal);text-decoration:none;margin-top:5px;font-family:var(--f-mono);letter-spacing:.04em;transition:opacity .2s}
-.footer-live-link:hover{opacity:.75}
-.footer-live-link-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:coord-pulse 2s infinite}
-.footer-nav{display:flex;gap:22px;flex-wrap:wrap}
-.footer-nav a{font-size:12.5px;color:var(--fog);transition:color .2s}
-.footer-nav a:hover{color:var(--text)}
-.footer-nav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:2px}
-.footer-copy{width:100%;font-size:11.5px;color:var(--fog-2);border-top:1px solid rgba(255,255,255,.04);padding-top:22px;margin-top:4px}
-
-/* ── Animations ──────────────────────────── */
-@keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-
-/* ── Responsive ──────────────────────────── */
-@media(max-width:960px){
-  .hero-inner{grid-template-columns:1fr;gap:52px}
-  .hero-visual{display:none}
-  .bento{grid-template-columns:1fr 1fr}
-  .bcard-wide{grid-column:span 2}
-  .bcard-tall{grid-row:span 1}
-  .metrics-grid{grid-template-columns:1fr 1fr}
-  .metric:nth-child(2){border-right:none}
-  .metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--border)}
-  .cta-inner{flex-direction:column;text-align:center;padding:48px 32px}
-  .cta-btns{justify-content:center}
-  .cta-compass{display:none}
-}
-@media(max-width:640px){
-  .nav-links,.nav-actions,.nav-coord{display:none}
-  .nav-mobile-btn{display:flex}
-  .nav-pill{padding:7px 10px 7px 14px}
-  .brand-wordmark{font-size:11px;letter-spacing:.1em}
-  .bento{grid-template-columns:1fr}
-  .bcard-wide{grid-column:span 1}
-  .hero-stats{flex-wrap:wrap;gap:16px}
-  .stat-div{display:none}
-  .stat{padding-right:0}
-  .metrics-grid{grid-template-columns:1fr}
-  .metric{border-right:none;border-bottom:1px solid var(--border)}
-  .metric:last-child{border-bottom:none}
-  .footer-inner{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:380px){
-  .cta-btns{flex-direction:column}
-  .btn-cta,.btn-cta-outline{justify-content:center}
-}
-</style>
+</script>
 </head>
 <body>
 
-<!-- Background -->
-<canvas id="butterfly-canvas" aria-hidden="true"></canvas>
-<div class="bg-glow" aria-hidden="true">
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
-  <div class="glow glow-3"></div>
-</div>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- ══════════════════════════════════════════
-     NAV — glass pill with live coordinate display
-══════════════════════════════════════════════ -->
-<header class="nav-wrap" role="banner">
-  <nav class="nav-pill" aria-label="Main navigation">
+<div class="atmos" aria-hidden="true"><i class="ga"></i><i class="gb"></i></div>
 
-    <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="nav-brand" aria-label="Compass Nexus home — visit compassnai.com" target="_blank" rel="noopener">
-      <div class="compass-badge">
-        <svg class="compass-svg-nav" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="teal-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#11C2AD;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#0E7C99;stop-opacity:1" />
-            </linearGradient>
-            <linearGradient id="amber-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#E89F1A;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#C17E0A;stop-opacity:1" />
-            </linearGradient>
-            <linearGradient id="pink-red" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#DC2626;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <!-- Left: Teal-blue isometric triangle -->
-          <polygon points="12,20 12,40 24,48 24,28" fill="url(#teal-blue)" opacity="0.95"/>
-          <polygon points="12,20 24,12 24,28 12,20" fill="url(#teal-blue)" opacity="1"/>
-          <polygon points="24,12 24,28 36,20 36,20" fill="#0D5A73" opacity="0.7"/>
+<!-- Shared symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v6h6M8 13h8M8 17h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M3 21h18M8 7h4M8 11h4M8 15h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 17h14M5 17a2 2 0 1 1-4 0v-4l2.2-5.2A2 2 0 0 1 5 6.5h14a2 2 0 0 1 1.8 1.3L23 13v4a2 2 0 1 1-4 0M3 13h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-portal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 18v3M7 13l3-3 2 2 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-wheel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 10.5 9.6 11.4M20.5 10.5l-6.1.9M12 14.5V21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 15.5a4 4 0 0 1 7 0M11 18.5h2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M12 8.5l1.2 2.3 2.3 1.2-2.3 1.2L12 15.5l-1.2-2.3-2.3-1.2 2.3-1.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m22 7-10 6L2 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 12h19M12 2.5a14.5 14.5 0 0 1 0 19M12 2.5a14.5 14.5 0 0 0 0 19" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <!-- Compass mark: ring, cardinal ticks, needle (gold north, blue south) -->
+    <symbol id="compass" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="1.5"/>
+      <path d="M32 3v6M32 55v6M3 32h6M55 32h6" stroke="currentColor" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+      <g class="needle">
+        <path d="M32 9 38.5 32h-13z" style="fill:var(--gold-bright)"/>
+        <path d="M32 9 32 32h-6.5z" style="fill:var(--gold)"/>
+        <path d="M32 55 25.5 32h13z" style="fill:var(--blue)"/>
+        <path d="M32 55 32 32h6.5z" style="fill:var(--navy);fill-opacity:.85"/>
+        <circle cx="32" cy="32" r="3.4" style="fill:var(--surface)" stroke="currentColor" stroke-width="1.6"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
 
-          <!-- Right top: Amber-gold diamond -->
-          <polygon points="40,12 48,20 40,28 32,20" fill="url(#amber-gold)" opacity="0.95"/>
-          <polygon points="40,12 48,20 52,16 44,8" fill="#F5A623" opacity="0.8"/>
-          <polygon points="48,20 52,16 52,24 48,28" fill="#C17E0A" opacity="0.6"/>
+<div class="page">
 
-          <!-- Right bottom: Pink-red diamond -->
-          <polygon points="40,32 48,40 40,48 32,40" fill="url(#pink-red)" opacity="0.95"/>
-          <polygon points="40,32 48,40 52,36 44,28" fill="#F87171" opacity="0.8"/>
-          <polygon points="48,40 52,36 52,44 48,48" fill="#DC2626" opacity="0.6"/>
-
-          <!-- Center shadow accent -->
-          <circle cx="32" cy="32" r="2.5" fill="rgba(17,194,173,0.3)"/>
-        </svg>
-      </div>
-      <span class="brand-wordmark">COMPASS <span class="accent">NEXUS</span></span>
+<!-- ═════════════ NAV ═════════════ -->
+<header class="nav-shell">
+  <nav class="nav glass" aria-label="Main">
+    <a class="brand" href="#top" aria-label="Compass Nexus iQ, back to top">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
+      <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="1.5"/>
+      <path d="M32 3v6M32 55v6M3 32h6M55 32h6" stroke="currentColor" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+      <g class="needle">
+        <path d="M32 9 38.5 32h-13z" style="fill:var(--gold-bright)"/>
+        <path d="M32 9 32 32h-6.5z" style="fill:var(--gold)"/>
+        <path d="M32 55 25.5 32h13z" style="fill:var(--blue)"/>
+        <path d="M32 55 32 32h6.5z" style="fill:var(--navy);fill-opacity:.85"/>
+        <circle cx="32" cy="32" r="3.4" style="fill:var(--surface)" stroke="currentColor" stroke-width="1.6"/>
+      </g>
+      </svg>
+      <span class="brand-name">Compass Nexus <b>iQ</b></span>
     </a>
-
-    <!-- Live coordinate display — the distinctive nav element -->
-    <div class="nav-coord" aria-label="Current navigation coordinates" role="status" aria-live="polite">
-      <div class="coord-dot" aria-hidden="true"></div>
-      <span id="nav-coord-text">37.7749° N, 122.4194° W</span>
-    </div>
-
-    <ul class="nav-links" role="list">
-      <li><a href="#features" class="nav-link">Platform</a></li>
-      <li><a href="#features" class="nav-link">Features</a></li>
-      <li><a href="#metrics" class="nav-link">Metrics</a></li>
-      <li><a href="#pricing" class="nav-link">Pricing</a></li>
+    <ul class="nav-links">
+      <li><a href="#chain">Platform</a></li>
+      <li><a href="#verification">Verification</a></li>
+      <li><a href="#billing">Billing</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#ai">AI</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
-
     <div class="nav-actions">
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle theme">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
-          <circle cx="8" cy="8" r="3.5"/>
-          <line x1="8" y1="1" x2="8" y2="2.5"/>
-          <line x1="8" y1="13.5" x2="8" y2="15"/>
-          <line x1="1" y1="8" x2="2.5" y2="8"/>
-          <line x1="13.5" y1="8" x2="15" y2="8"/>
-          <line x1="3.05" y1="3.05" x2="4.1" y2="4.1"/>
-          <line x1="11.9" y1="11.9" x2="12.95" y2="12.95"/>
-          <line x1="12.95" y1="3.05" x2="11.9" y2="4.1"/>
-          <line x1="4.1" y1="11.9" x2="3.05" y2="12.95"/>
-        </svg>
+      <button class="icon-btn theme-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
       </button>
-      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-ghost-sm" target="_blank" rel="noopener">Sign In</a>
-      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-nav-cta" target="_blank" rel="noopener">Get Started</a>
+      <a class="btn btn-primary" href="#contact">Talk to us</a>
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
-
-    <button class="nav-mobile-btn" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
-
-  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile">
-    <a href="#features" class="mobile-link">Platform</a>
-    <a href="#features" class="mobile-link">Features</a>
-    <a href="#metrics" class="mobile-link">Metrics</a>
-    <a href="#pricing" class="mobile-link">Pricing</a>
-    <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="mobile-link" target="_blank" rel="noopener">Get Started → compassnai.com</a>
-  </div>
+  <nav class="mobile-menu glass" id="mobile-menu" aria-label="Mobile" hidden>
+    <a href="#chain">Platform</a>
+    <a href="#verification">Verification</a>
+    <a href="#billing">Billing</a>
+    <a href="#apps">Apps</a>
+    <a href="#ai">AI</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Talk to us</a>
+  </nav>
 </header>
 
-<!-- ══════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════ -->
-<main id="main-content">
-<section class="hero" aria-labelledby="hero-h1">
-  <div class="hero-inner">
+<main id="main">
 
+<!-- ═════════════ HERO ═════════════ -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="hero-eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Navigation Intelligence Platform<a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="live-badge" target="_blank" rel="noopener" aria-label="Visit compassnai.com live site"><span class="live-badge-dot" aria-hidden="true"></span>compassnai.com</a></div>
-
-      <h1 class="hero-h1" id="hero-h1">
-        <span class="h1-line-1">Navigate</span>
-        <span class="h1-line-2">the unknown</span>
-        <span class="h1-line-3">with precision</span>
-      </h1>
-
-      <p class="hero-body">Compass Nexus fuses real-time spatial intelligence with adaptive signal processing to guide decisions through complexity. Built for teams that refuse to drift.</p>
-
+      <div class="hero-meta">
+        <span class="eyebrow">Employee transportation platform</span>
+        <span class="coord">Thiruvananthapuram · 8.5241° N, 76.9366° E</span>
+      </div>
+      <h1 class="h1" id="hero-h">Every trip verified.<br>Every invoice <span class="gold">traceable.</span></h1>
+      <p class="hero-sub">Compass Nexus iQ is how Compass Travel &amp; Transportation runs employee transport for IT campuses, corporate offices and ports. Booking, vehicles, drivers, live trips, verification, invoicing and payment all sit in one record that your operations and finance teams can check.</p>
       <div class="hero-cta">
-        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-primary-lg" target="_blank" rel="noopener">
-          Start Navigating
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-ghost-lg" aria-label="Watch product demo" target="_blank" rel="noopener">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="1.3"/><polygon points="6,4.5 11.5,7.5 6,10.5" fill="currentColor"/></svg>
-          Watch demo
-        </a>
-      </div>
-
-      <div class="hero-stats" role="list" aria-label="Key platform statistics">
-        <div class="stat" role="listitem">
-          <div class="stat-num"><span class="stat-val" data-target="99.9" data-decimals="1">99.9</span><span class="unit">%</span></div>
-          <div class="stat-lbl">Uptime SLA</div>
-        </div>
-        <div class="stat-div" aria-hidden="true"></div>
-        <div class="stat" role="listitem">
-          <div class="stat-num"><span class="stat-val" data-target="140" data-decimals="0">140</span><span class="unit" style="font-size:14px;font-style:normal">ms</span></div>
-          <div class="stat-lbl">Avg latency</div>
-        </div>
-        <div class="stat-div" aria-hidden="true"></div>
-        <div class="stat" role="listitem">
-          <div class="stat-num"><span class="stat-val" data-target="3.2" data-decimals="1">3.2</span><span class="unit">M</span></div>
-          <div class="stat-lbl">Data points / sec</div>
-        </div>
+        <a class="btn btn-primary btn-lg" href="#contact">Plan your campus transport <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="#verification">See how a trip is verified</a>
       </div>
     </div>
 
-    <!-- Compass orb -->
-    <div class="hero-visual" aria-hidden="true">
-      <div class="orb-wrap">
-        <div class="orb-ring orb-ring-3"></div>
-        <div class="orb-ring orb-ring-2"></div>
-        <div class="orb-ring orb-ring-1"></div>
-        <div class="orb-body">
-          <svg class="orb-svg" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer graduation ring -->
-            <circle cx="110" cy="110" r="105" stroke="#E89F1A" stroke-width=".8" opacity=".25"/>
-            <circle cx="110" cy="110" r="98" stroke="#11C2AD" stroke-width=".4" stroke-dasharray="3 9" opacity=".3"/>
-            <!-- Inner rings -->
-            <circle cx="110" cy="110" r="80" stroke="#E89F1A" stroke-width=".4" opacity=".15"/>
-            <circle cx="110" cy="110" r="55" stroke="#E89F1A" stroke-width=".3" opacity=".12"/>
-            <!-- Cardinal ticks -->
-            <line x1="110" y1="5" x2="110" y2="18" stroke="#E89F1A" stroke-width="2" opacity=".65"/>
-            <line x1="110" y1="202" x2="110" y2="215" stroke="#E89F1A" stroke-width="2" opacity=".25"/>
-            <line x1="5" y1="110" x2="18" y2="110" stroke="#E89F1A" stroke-width="2" opacity=".25"/>
-            <line x1="202" y1="110" x2="215" y2="110" stroke="#E89F1A" stroke-width="2" opacity=".25"/>
-            <!-- Ordinal ticks -->
-            <line x1="33.8" y1="33.8" x2="42.6" y2="42.6" stroke="#E89F1A" stroke-width=".7" opacity=".2"/>
-            <line x1="186.2" y1="33.8" x2="177.4" y2="42.6" stroke="#E89F1A" stroke-width=".7" opacity=".2"/>
-            <line x1="33.8" y1="186.2" x2="42.6" y2="177.4" stroke="#E89F1A" stroke-width=".7" opacity=".2"/>
-            <line x1="186.2" y1="186.2" x2="177.4" y2="177.4" stroke="#E89F1A" stroke-width=".7" opacity=".2"/>
-            <!-- Labels -->
-            <text x="110" y="30" text-anchor="middle" fill="#11C2AD" font-size="12" font-family="monospace" font-weight="700" letter-spacing=".1em">N</text>
-            <text x="110" y="202" text-anchor="middle" fill="#E89F1A" font-size="10" font-family="monospace" opacity=".45">S</text>
-            <text x="198" y="114" text-anchor="middle" fill="#E89F1A" font-size="10" font-family="monospace" opacity=".45">E</text>
-            <text x="22" y="114" text-anchor="middle" fill="#E89F1A" font-size="10" font-family="monospace" opacity=".45">W</text>
-            <!-- Needles -->
-            <polygon points="110,32 114.5,107 110,100 105.5,107" fill="#11C2AD"/>
-            <polygon points="110,188 114.5,113 110,120 105.5,113" fill="#E89F1A" opacity=".7"/>
-            <!-- Centre -->
-            <circle cx="110" cy="110" r="7" fill="#11C2AD" opacity=".15"/>
-            <circle cx="110" cy="110" r="4" fill="#11C2AD" opacity=".7"/>
-            <circle cx="110" cy="110" r="2" fill="#ECE8FF"/>
-          </svg>
+    <figure class="console glass" aria-label="Sample of the Admin Command Centre showing today's trips">
+      <div class="console-bar">
+        <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="console-title">Admin Command Centre <span>· Today</span></p>
+        <span class="sample-tag">Sample data</span>
+      </div>
+      <div class="console-body">
+        <dl class="kpis">
+          <div class="kpi"><dt>Today's trips</dt><dd>214</dd></div>
+          <div class="kpi"><dt>In progress</dt><dd>38</dd></div>
+          <div class="kpi"><dt>Pending verification</dt><dd>12</dd></div>
+          <div class="kpi"><dt>Monthly KM</dt><dd>18,420<small>km</small></dd></div>
+        </dl>
+        <div class="ledger-wrap" tabindex="0" role="region" aria-label="Sample trip ledger">
+          <table class="ledger">
+            <thead>
+              <tr><th scope="col">Trip ID</th><th scope="col">Account</th><th scope="col">Pickup → Drop</th><th scope="col">Trip type</th><th scope="col" class="num">Actual KM</th><th scope="col">Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="mono">CNQ-0924-0147</td><td>Direct</td><td>Kowdiar → Technopark Ph III</td><td>Login</td><td class="num">18.4</td><td><span class="pill pill-live">Trip started</span></td></tr>
+              <tr><td class="mono">CNQ-0924-0142</td><td>Sub-vendor</td><td>Pattom → Kazhakkoottam</td><td>Login</td><td class="num">12.9</td><td><span class="pill pill-info">Trip completed</span></td></tr>
+              <tr><td class="mono">CNQ-0924-0139</td><td>Direct</td><td>Kowdiar → Technopark Ph III</td><td>Login</td><td class="num">22.6</td><td><span class="pill pill-ok">Verified</span></td></tr>
+              <tr><td class="mono">CNQ-0924-0131</td><td>Sub-vendor</td><td>Kovalam → Vizhinjam</td><td>Logout</td><td class="num">9.8</td><td><span class="pill pill-warn">Disputed</span></td></tr>
+              <tr><td class="mono">CNQ-0923-0977</td><td>Direct</td><td>Technopark Ph I → Ulloor</td><td>Logout</td><td class="num">14.2</td><td><span class="pill pill-gold">Billed</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
+    </figure>
+  </div>
+</section>
 
-      <!-- Floating info cards -->
-      <div class="fcard fcard-1">
-        <div class="fc-dot fc-dot-amber" aria-hidden="true"></div>
+<!-- ═════════════ ACCOUNTS ═════════════ -->
+<section class="accounts" aria-labelledby="acct-h">
+  <div class="wrap accounts-grid">
+    <h2 class="acct-label" id="acct-h">Who we move people for</h2>
+    <div class="acct-groups">
+      <div class="acct-group">
+        <p class="acct-label">Direct accounts</p>
+        <ul class="acct-names"><li>IBS Software</li><li>Envestnet</li></ul>
+      </div>
+      <div class="acct-group">
+        <p class="acct-label">Partner operations with MLL Mobility</p>
+        <ul class="acct-names"><li>Allianz</li><li>EY</li><li>GMC</li><li>HCL</li><li>Vizhinjam Port</li><li>Infoblox</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CHAIN ═════════════ -->
+<section class="band" id="chain" aria-labelledby="chain-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">One connected chain</span>
+      <h2 class="h2" id="chain-h">From the employee's booking to your payment, one unbroken record</h2>
+      <p class="lede">Each stage writes to the same trip. Nothing is re-keyed between operations and billing, so any figure on an invoice leads back to the trip it came from.</p>
+    </div>
+    <ol class="chain">
+      <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Book</h3><p>A roster entry or customer request becomes a trip with its own Trip ID.</p></li>
+      <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Assign</h3><p>Vehicle and driver matched on availability, valid documents and site.</p></li>
+      <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Operate</h3><p>Live status, ETA and GPS route from pickup to drop.</p></li>
+      <li class="step is-gate"><span class="step-node" aria-hidden="true"></span><h3>Verify</h3><p>Eleven checks and customer confirmation, then the trip is locked.</p></li>
+      <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Reconcile</h3><p>Booking, roster, GPS and trip sheet compared. Exceptions are flagged.</p></li>
+      <li class="step is-gate"><span class="step-node" aria-hidden="true"></span><h3>Approve</h3><p>A person approves the billing record before anything is issued.</p></li>
+      <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Invoice</h3><p>Tax invoice with the full supporting package for the period.</p></li>
+      <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Get paid</h3><p>Payments tracked against each invoice and reported monthly.</p></li>
+    </ol>
+    <p class="chain-note"><span class="key" aria-hidden="true"></span>Gold stages are human checkpoints. A trip cannot move past them automatically.</p>
+  </div>
+</section>
+
+<!-- ═════════════ VERIFICATION ═════════════ -->
+<section class="band" id="verification" aria-labelledby="verify-h">
+  <div class="wrap split">
+    <div class="split-copy">
+      <span class="eyebrow">Trip verification</span>
+      <h2 class="h2" id="verify-h">A trip becomes billable only after it passes every check</h2>
+      <p class="lede">Operations records what actually happened. The customer confirms it. Then the trip locks, and any later change keeps the old value beside the new one.</p>
+      <ol class="checks" aria-label="Verification checks">
+        <li>Confirm booking</li>
+        <li>Confirm vehicle</li>
+        <li>Confirm driver</li>
+        <li>Record actual trip</li>
+        <li>Capture actual KM</li>
+        <li>Validate route</li>
+        <li>Validate pickup and drop</li>
+        <li>Check cancellation or no-show</li>
+        <li>Customer verification</li>
+        <li class="gate">Lock verified trip</li>
+        <li class="gate">Generate billing record</li>
+      </ol>
+    </div>
+
+    <article class="record glass" aria-label="Sample verified trip record">
+      <div class="record-head">
         <div>
-          <div class="fc-name">Signal detected</div>
-          <div class="fc-sub">North-East quadrant</div>
+          <p class="record-id">CNQ-0924-0139</p>
+          <p class="record-sub">Direct account · Login trip · 24 Sep 2026</p>
         </div>
+        <span class="pill pill-ok"><svg width="12" height="12" aria-hidden="true"><use href="#i-lock"/></svg>Verified · Locked</span>
       </div>
-
-      <div class="fcard fcard-2">
-        <div class="fc-dot fc-dot-teal" aria-hidden="true"></div>
-        <div>
-          <div class="fc-name">Route optimised</div>
-          <div class="fc-sub">12% faster path found</div>
-        </div>
+      <div class="route" aria-label="Route">
+        <span class="dot" aria-hidden="true"></span><span>Pickup · Kowdiar</span><time>07:12</time>
+        <span class="rail" aria-hidden="true"></span><span></span><span></span>
+        <span class="dot end" aria-hidden="true"></span><span>Drop · Technopark Phase III</span><time>07:51</time>
       </div>
-
-      <div class="fcard fcard-3">
-        <div class="fc-dot fc-dot-live" aria-hidden="true"></div>
-        <span style="font-size:12px;color:var(--text);font-weight:600">Live tracking</span>
+      <dl class="fields">
+        <div><dt>Vehicle</dt><dd>Sedan · AC</dd></div>
+        <div><dt>Planned KM</dt><dd class="mono">21.0</dd></div>
+        <div><dt>Actual KM</dt><dd class="mono">22.6</dd></div>
+        <div><dt>Driver check</dt><dd>Confirmed</dd></div>
+        <div><dt>GPS route</dt><dd>Matched</dd></div>
+        <div><dt>Customer</dt><dd>Verified</dd></div>
+      </dl>
+      <div class="audit">
+        <div class="audit-head"><span>Audit trail</span><span class="mono">24 Sep 2026 · 10:42 IST</span></div>
+        <dl class="audit-row">
+          <dt>Field</dt><dd>actual_km</dd>
+          <dt>Old value</dt><dd><s>24.1</s></dd>
+          <dt>New value</dt><dd>22.6</dd>
+          <dt>Changed by</dt><dd>Operations lead</dd>
+          <dt>Reason</dt><dd>Odometer photo re-read; matches GPS track</dd>
+        </dl>
       </div>
-    </div>
-
-  </div>
-
-  <div class="scroll-cue" aria-hidden="true">
-    <div class="scroll-cue-line"></div>
-    <span>scroll</span>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     FEATURES BENTO
-══════════════════════════════════════════════ -->
-<section class="section" id="features" aria-labelledby="features-h2">
-  <div class="section-inner">
-    <div class="section-eye" aria-hidden="true">Core Platform</div>
-    <h2 class="section-h2" id="features-h2">Everything you need<br>to stay <em>on course</em></h2>
-
-    <div class="bento" role="list">
-
-      <article class="bcard bcard-wide" role="listitem">
-        <div class="bcard-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#11C2AD" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="8"/><circle cx="10" cy="10" r="2.5" fill="#11C2AD" opacity=".3"/><line x1="10" y1="2" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="18"/><line x1="2" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="18" y2="10"/></svg>
-        </div>
-        <h3 class="bcard-h">Real-time Spatial Intelligence</h3>
-        <p class="bcard-p">Process 3.2 million data points per second across your entire decision surface. No lag, no dead zones — the full picture, always current.</p>
-        <div class="mini-chart" aria-hidden="true">
-          <div class="bar" style="height:38%"></div>
-          <div class="bar" style="height:55%"></div>
-          <div class="bar" style="height:42%"></div>
-          <div class="bar hi" style="height:72%"></div>
-          <div class="bar" style="height:58%"></div>
-          <div class="bar hi" style="height:88%"></div>
-          <div class="bar hi" style="height:68%"></div>
-          <div class="bar hi" style="height:100%"></div>
-          <div class="bar" style="height:82%"></div>
-        </div>
-        <svg class="bcard-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-      </article>
-
-      <article class="bcard" role="listitem">
-        <div class="bcard-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#a78bfa" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 6.5l8 4 8-4L10 2z"/><path d="M2 13.5l8 4 8-4"/><path d="M2 10l8 4 8-4"/></svg>
-        </div>
-        <h3 class="bcard-h">Multi-layer Mapping</h3>
-        <p class="bcard-p">Stack context layers — market, risk, team, time — and see the complete territory in a single view.</p>
-        <svg class="bcard-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-      </article>
-
-      <article class="bcard bcard-tall" role="listitem">
-        <div class="bcard-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ec4899" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18s7-3.5 7-8.5V4.5L10 2 3 4.5V9.5c0 5 7 8.5 7 8.5z"/></svg>
-        </div>
-        <h3 class="bcard-h">Team Synchronisation</h3>
-        <p class="bcard-p">Share the same map in real time. Annotate, flag, and re-route from any seat in the organisation. Everyone navigates together.</p>
-        <div class="av-stack" aria-label="12 team members online" role="img">
-          <div class="av av-a" aria-hidden="true"></div>
-          <div class="av av-b" aria-hidden="true"></div>
-          <div class="av av-c" aria-hidden="true"></div>
-          <div class="av av-d" aria-hidden="true">+9</div>
-        </div>
-        <svg class="bcard-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-      </article>
-
-      <article class="bcard" role="listitem">
-        <div class="bcard-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#E89F1A" stroke-width="1.4" stroke-linecap="round"><path d="M10 18s7-3.5 7-8.5V4.5L10 2 3 4.5V9.5c0 5 7 8.5 7 8.5z"/><path d="M7 9.5l2.2 2.2 3.8-4"/></svg>
-        </div>
-        <h3 class="bcard-h">Adaptive Guardrails</h3>
-        <p class="bcard-p">Alert thresholds that learn your risk tolerance. Rules that evolve with the terrain rather than calcify in a config file.</p>
-        <svg class="bcard-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-      </article>
-
-      <article class="bcard bcard-accent" role="listitem">
-        <div class="bcard-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#11C2AD" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18.5 10 15.5 10 13 17.5 7.5 2.5 5 10 1.5 10"/></svg>
-        </div>
-        <h3 class="bcard-h">Signal-to-Noise Engine</h3>
-        <p class="bcard-p">Our AI isolates what matters. Only the signals worth navigating surface — everything else is filtered before it reaches your team.</p>
-        <svg class="bcard-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-      </article>
-
-      <article class="bcard" role="listitem">
-        <div class="bcard-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60a5fa" stroke-width="1.4" stroke-linecap="round"><rect x="2.5" y="9" width="15" height="9" rx="2"/><path d="M6 9V6.5a4 4 0 018 0V9"/></svg>
-        </div>
-        <h3 class="bcard-h">Enterprise Security</h3>
-        <p class="bcard-p">SOC 2 Type II. End-to-end encryption. Zero-knowledge routing options for classified routes and sensitive navigational data.</p>
-        <svg class="bcard-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
-      </article>
-
-    </div>
+      <span class="sample-tag">Sample record</span>
+    </article>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     METRICS
-══════════════════════════════════════════════ -->
-<section class="metrics-section" id="metrics" aria-labelledby="metrics-h2">
-  <div class="metrics-inner">
-    <h2 class="sr-only" id="metrics-h2">Platform metrics</h2>
-    <div class="metrics-grid" role="list">
-      <div class="metric" role="listitem">
-        <div class="metric-n" aria-label="12,000 active navigators"><span class="stat-val" data-target="12000" data-decimals="0">12,000</span></div>
-        <div class="metric-l">Active navigators</div>
+<!-- ═════════════ BILLING ═════════════ -->
+<section class="band" id="billing" aria-labelledby="billing-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Invoicing</span>
+      <h2 class="h2" id="billing-h">Invoices your finance team can take apart line by line</h2>
+      <p class="lede">Every invoice is built from locked, verified trips and issued under the correct billing entity's GSTIN and UDYAM details. Open any line and follow it down to the vehicle, driver and route.</p>
+    </div>
+    <div class="billing">
+      <div class="trace glass">
+        <div class="trace-title"><h3>Trace an invoice</h3><span class="sample-tag">Sample</span></div>
+        <ol class="trace-list">
+          <li><span class="trace-ico" aria-hidden="true"><svg><use href="#i-doc"/></svg></span><div><strong>Tax invoice</strong><span>Taxable value, CGST / SGST or IGST, total in words</span></div><span class="mono">CTT/26-27/0412</span></li>
+          <li><span class="trace-ico" aria-hidden="true"><svg><use href="#i-cal"/></svg></span><div><strong>Billing period</strong><span>Service dates covered</span></div><span class="mono">01–30 Sep 2026</span></li>
+          <li><span class="trace-ico" aria-hidden="true"><svg><use href="#i-building"/></svg></span><div><strong>Customer account</strong><span>Direct or sub-vendor, contract and site</span></div><span class="mono">Direct</span></li>
+          <li><span class="trace-ico" aria-hidden="true"><svg><use href="#i-list"/></svg></span><div><strong>Trip ledger</strong><span>Verified trips only</span></div><span class="mono">412 trips</span></li>
+          <li><span class="trace-ico" aria-hidden="true"><svg><use href="#i-pin"/></svg></span><div><strong>Individual trip</strong><span>Times, KM, rate, amount</span></div><span class="mono">CNQ-0924-0139</span></li>
+          <li><span class="trace-ico" aria-hidden="true"><svg><use href="#i-car"/></svg></span><div><strong>Vehicle, driver and route</strong><span>GPS record and verification status</span></div><span class="mono">Sedan · AC</span></li>
+        </ol>
       </div>
-      <div class="metric" role="listitem">
-        <div class="metric-n" aria-label="140 millisecond average response time"><span class="stat-val" data-target="140" data-decimals="0">140</span>ms</div>
-        <div class="metric-l">Average response time</div>
-      </div>
-      <div class="metric" role="listitem">
-        <div class="metric-n" aria-label="99.9% uptime guarantee"><span class="stat-val" data-target="99.9" data-decimals="1">99.9</span>%</div>
-        <div class="metric-l">Uptime guarantee</div>
-      </div>
-      <div class="metric" role="listitem">
-        <div class="metric-n" aria-label="48 hour average onboarding"><span class="stat-val" data-target="48" data-decimals="0">48</span>h</div>
-        <div class="metric-l">Avg onboarding time</div>
+      <div class="pkg">
+        <h3 class="h2" style="font-size:var(--t-xl)">The billing package for every cycle</h3>
+        <p class="lede" style="font-size:var(--t-md)">Download it as PDF, with Excel for the trip-level sheets.</p>
+        <ul class="pkg-list">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tax invoice</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Trip summary</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Detailed trip sheet</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Vehicle summary</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Driver summary</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>KM summary</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Rate calculation</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tax calculation</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Supporting documents</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>QR verification code</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Customer approval status</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     CTA
-══════════════════════════════════════════════ -->
-<section class="cta-section" id="pricing" aria-labelledby="cta-h">
-  <div class="cta-inner">
-    <svg class="cta-compass" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-      <circle cx="40" cy="40" r="37" stroke="#E89F1A" stroke-width=".8" opacity=".35"/>
-      <circle cx="40" cy="40" r="3.5" fill="#11C2AD" opacity=".8"/>
-      <polygon points="40,9 43,38 40,33 37,38" fill="#11C2AD"/>
-      <polygon points="40,71 43,42 40,47 37,42" fill="#E89F1A" opacity=".65"/>
-    </svg>
-    <div class="cta-body">
-      <h2 class="cta-h" id="cta-h">Ready to find <em>true north?</em></h2>
-      <p class="cta-p">Join 12,000 navigators already moving with precision. No credit card required. Full platform access from day one.</p>
-      <div class="cta-btns">
-        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-cta" target="_blank" rel="noopener">Start for free</a>
-        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-cta-outline" target="_blank" rel="noopener">Visit compassnai.com →</a>
+<!-- ═════════════ QUALITY ═════════════ -->
+<section class="band" id="quality" aria-labelledby="quality-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Fleet and driver quality</span>
+      <h2 class="h2" id="quality-h">Vehicles and drivers held to criteria you can inspect</h2>
+    </div>
+    <div class="quality">
+      <article class="panel">
+        <h3>Vehicle quality scorecard</h3>
+        <p>Each vehicle is inspected against criteria your administrators configure, with thresholds they set. The score is calculated from those inspections. A vehicle with no inspection on record shows no score.</p>
+        <div class="criteria">
+          <div class="crit"><h4>Documents</h4><ul><li>Insurance</li><li>Fitness certificate</li><li>Permit</li><li>PUC</li><li>RC details</li></ul></div>
+          <div class="crit"><h4>Safety</h4><ul><li>First aid kit</li><li>Fire extinguisher</li><li>Emergency equipment</li><li>GPS status</li><li>Camera, where fitted</li></ul></div>
+          <div class="crit"><h4>Condition</h4><ul><li>Tyres</li><li>AC</li><li>Interior</li><li>Exterior</li><li>Cleanliness</li></ul></div>
+        </div>
+        <p class="panel-note"><svg aria-hidden="true"><use href="#i-cal"/></svg>Expiry alerts go to the fleet manager and the driver before insurance, fitness, permit or PUC lapses.</p>
+      </article>
+      <article class="panel">
+        <div class="app-top"><h3>Driver profile</h3><span class="sample-tag">Sample</span></div>
+        <dl class="driver-rows">
+          <div><dt>Driving licence</dt><dd><span class="pill pill-ok">Valid</span></dd></div>
+          <div><dt>Police verification</dt><dd><span class="pill pill-ok">Completed</span></dd></div>
+          <div><dt>Training</dt><dd><span class="pill pill-ok">Current</span></dd></div>
+          <div><dt>Medical fitness</dt><dd>On file</dd></div>
+          <div><dt>Assigned vehicle</dt><dd>Sedan · AC</dd></div>
+          <div><dt>Shift</dt><dd class="mono">08:00 login</dd></div>
+        </dl>
+        <p class="lock"><svg aria-hidden="true"><use href="#i-lock"/></svg>Personal details visible to authorised roles only</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ APPS ═════════════ -->
+<section class="band" id="apps" aria-labelledby="apps-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Three apps, one record</span>
+      <h2 class="h2" id="apps-h">Built for the people who book, drive and ride</h2>
+      <p class="lede">Customers, drivers and employees each get their own app. All three read from and write to the same trip record.</p>
+    </div>
+    <div class="apps">
+      <article class="app">
+        <div class="app-top"><span class="app-ico" aria-hidden="true"><svg><use href="#i-portal"/></svg></span><span class="app-who">Customer admin</span></div>
+        <h3>Customer portal</h3>
+        <p>See today's trips, verify completed ones and download each month's billing package.</p>
+        <div class="app-screen" aria-hidden="true">
+          <div class="scr-row"><span class="k">Pending verification</span><span class="v">12</span></div>
+          <div class="scr-row"><span class="k">Open service requests</span><span class="v">2</span></div>
+          <div class="scr-row"><span class="k">Verified this month</span><span class="v">86%</span></div>
+          <div class="scr-bar"><i style="width:86%"></i></div>
+          <div class="scr-btns"><span class="go">Verify trips</span><span>Raise dispute</span></div>
+        </div>
+        <ul class="feat-list"><li>Verify trips or raise disputes</li><li>Invoices and trip sheets</li><li>Vehicle quality and service reports</li></ul>
+      </article>
+      <article class="app">
+        <div class="app-top"><span class="app-ico" aria-hidden="true"><svg><use href="#i-wheel"/></svg></span><span class="app-who">Driver</span></div>
+        <h3>Driver app</h3>
+        <p>Today's schedule, navigation and passenger check-in, with trip start and end recorded on the spot.</p>
+        <div class="app-screen" aria-hidden="true">
+          <div class="scr-row"><span class="k">Next pickup</span><span class="v">07:12 · Kowdiar</span></div>
+          <div class="scr-row"><span class="k">Passengers</span><span class="v">3 of 4</span></div>
+          <div class="scr-row"><span class="k">GPS KM today</span><span class="v">64.3</span></div>
+          <div class="scr-bar"><i style="width:75%"></i></div>
+          <div class="scr-btns"><span class="go">Start trip</span><span>Mark no-show</span></div>
+        </div>
+        <ul class="feat-list"><li>KM entry and GPS KM</li><li>Vehicle inspection and incidents</li><li>Document expiry alerts</li></ul>
+      </article>
+      <article class="app">
+        <div class="app-top"><span class="app-ico" aria-hidden="true"><svg><use href="#i-person"/></svg></span><span class="app-who">Employee</span></div>
+        <h3>Employee app</h3>
+        <p>Book around your shift, follow the cab live and reach help in one tap.</p>
+        <div class="app-screen" aria-hidden="true">
+          <div class="scr-row"><span class="k">Cab arriving</span><span class="v">6 min</span></div>
+          <div class="scr-row"><span class="k">Vehicle</span><span class="v">Sedan · KL-01-••21</span></div>
+          <div class="scr-row"><span class="k">Shift</span><span class="v">08:00 login</span></div>
+          <div class="scr-bar"><i style="width:60%"></i></div>
+          <div class="scr-btns"><span>Share trip</span><span class="sos">SOS</span></div>
+        </div>
+        <ul class="feat-list"><li>Booking, cancellation, no-show</li><li>Live ETA and driver details</li><li>SOS, emergency contact, ratings</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ AI ═════════════ -->
+<section class="band ai-band" id="ai" aria-labelledby="ai-h">
+  <div class="wrap">
+    <div class="ai-stage">
+      <div class="split-copy">
+        <span class="eyebrow">Compass Nexus iQ AI</span>
+        <h2 class="h2" id="ai-h">An assistant that labels where every number came from</h2>
+        <p class="lede">It reads trip sheets, invoices and statements, reconciles them against GPS and rosters, and drafts reports. Every value it shows carries one of five labels.</p>
+        <div class="provenance" aria-label="Data labels">
+          <span class="prov fact"><i></i>Fact</span>
+          <span class="prov calc"><i></i>Calculated value</span>
+          <span class="prov user"><i></i>User-provided</span>
+          <span class="prov doc"><i></i>Document-derived</span>
+          <span class="prov sugg"><i></i>AI suggestion</span>
+        </div>
+        <ul class="ai-rules">
+          <li>Never invents trips, invoices, GST or PAN details, approvals or payments</li>
+          <li>Flags exceptions for a person to review and never declares fraud</li>
+          <li>Needs human approval before any invoice is issued</li>
+          <li>Keeps the source document reference for every extracted value</li>
+        </ul>
       </div>
+
+      <figure class="ai-card" aria-label="Sample reconciliation result from Compass Nexus iQ AI">
+        <div class="ai-card-head">
+          <span class="ai-avatar" aria-hidden="true"><svg><use href="#i-spark"/></svg></span>
+          <span class="who">Trip audit · September</span>
+          <span class="sample-tag">Sample</span>
+        </div>
+        <p class="ai-msg">Compared the September trip sheet with GPS records for the direct account. <strong>409 of 412 trips match.</strong> 3 need review.</p>
+        <div class="flag">
+          <div class="flag-head"><b>KM mismatch</b><span class="mono">CNQ-0918-0088</span></div>
+          <div class="evidence">
+            <div class="ev"><i class="tag" style="background:#A69DF5" aria-hidden="true"></i><span class="src">Trip sheet · TripSheet_Sep.xlsx, row 214</span><span class="val">42.0 km</span></div>
+            <div class="ev"><i class="tag" style="background:#4CC38A" aria-hidden="true"></i><span class="src">GPS track</span><span class="val">36.4 km</span></div>
+            <div class="ev"><i class="tag" style="background:#5E8FF2" aria-hidden="true"></i><span class="src">Difference</span><span class="val">5.6 km · 15.4%</span></div>
+            <div class="ev"><i class="tag" style="background:#E0B456" aria-hidden="true"></i><span class="src">Suggestion: hold from invoice until the odometer reading is confirmed</span><span class="val"></span></div>
+          </div>
+        </div>
+        <div class="ai-actions" aria-hidden="true"><span class="primary">Send to Operations</span><span>Open trip</span><span>Dismiss with reason</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ SECURITY ═════════════ -->
+<section class="band" id="security" aria-labelledby="sec-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Access and audit</span>
+      <h2 class="h2" id="sec-h">Each role sees only what it needs. Every change leaves a trail.</h2>
+    </div>
+    <div class="security">
+      <article class="panel">
+        <h3>Eight roles</h3>
+        <ul class="roles">
+          <li class="role">Super Admin <small>all records</small></li>
+          <li class="role">Business Admin <small>profiles, contracts</small></li>
+          <li class="role">Finance <small>invoices, payments</small></li>
+          <li class="role">Operations <small>trips, dispatch</small></li>
+          <li class="role">Fleet Manager <small>vehicles, drivers</small></li>
+          <li class="role">Customer Admin <small>own account</small></li>
+          <li class="role">Driver <small>assigned trips</small></li>
+          <li class="role">Employee <small>own trips</small></li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>Six audit logs</h3>
+        <ul class="logs">
+          <li>Login audit <span>who signed in, when, from where</span></li>
+          <li>Data change audit <span>old value, new value, reason</span></li>
+          <li>Trip audit <span>every status change on a trip</span></li>
+          <li>Invoice audit <span>drafts, approvals, issue, payment</span></li>
+          <li>Document audit <span>uploads, extractions, sources</span></li>
+          <li>User activity audit <span>actions by role and user</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ FAQ ═════════════ -->
+<section class="band" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="eyebrow">Questions</span>
+      <h2 class="h2" id="faq-h">What transport and finance teams usually ask</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Do you contract directly or through a partner?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>Both. IBS Software and Envestnet are direct accounts, where we hold the agreement and manage operations, billing and reporting ourselves. We also run services as a partner to MLL Mobility for Allianz, EY, GMC, HCL, Vizhinjam Port and Infoblox. The platform keeps direct and sub-vendor accounts separate in every record and report.</p>
+      </details>
+      <details>
+        <summary>Can our finance team check an invoice against the trips?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>Yes. Each invoice links to its billing period, the trip ledger and every verified trip in it. The package includes the detailed trip sheet, KM summary, rate calculation and tax calculation so each line can be checked.</p>
+      </details>
+      <details>
+        <summary>What happens if a trip record needs correcting after it is locked?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>The correction is recorded as a change, never an overwrite. The audit trail keeps the old value, the new value, who changed it, when, and the reason.</p>
+      </details>
+      <details>
+        <summary>Does the AI issue invoices by itself?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>No. It prepares draft invoices, reconciliations and exception reports. A person reviews and approves before any invoice is issued, and possible problems are flagged for review rather than treated as wrongdoing.</p>
+      </details>
+      <details>
+        <summary>Who can see driver and employee personal details?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>Only the roles that need them. Driver licence, verification and medical records are restricted, and customer admins see driver details only where the contract permits.</p>
+      </details>
+      <details>
+        <summary>Where do you operate?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>We are based in Thiruvananthapuram, Kerala, and serve IT companies, corporate campuses, industrial organisations and port operations.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CONTACT ═════════════ -->
+<section class="band" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="contact glass">
+      <svg class="contact-rose" aria-hidden="true"><use href="#compass"/></svg>
+      <div class="contact-copy">
+        <span class="eyebrow">Get started</span>
+        <h2 class="h2" id="contact-h">Plan transport for your campus</h2>
+        <p class="lede">Tell us your sites, shifts and headcount. We will walk you through routes, vehicle mix, verification and billing for your account.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="mailto:navigation@compassnai.com?subject=Employee%20transportation%20enquiry">Email navigation@compassnai.com</a>
+        </div>
+      </div>
+      <dl class="channels">
+        <div class="channel">
+          <span class="ci" aria-hidden="true"><svg><use href="#i-phone"/></svg></span>
+          <div><dt>Phone</dt><dd><a href="tel:+919995881477">+91 99958 81477</a></dd></div>
+          <button class="copy-btn" type="button" data-copy="+91 99958 81477">Copy</button>
+        </div>
+        <div class="channel">
+          <span class="ci" aria-hidden="true"><svg><use href="#i-phone"/></svg></span>
+          <div><dt>Phone</dt><dd><a href="tel:+918590011477">+91 85900 11477</a></dd></div>
+          <button class="copy-btn" type="button" data-copy="+91 85900 11477">Copy</button>
+        </div>
+        <div class="channel">
+          <span class="ci" aria-hidden="true"><svg><use href="#i-mail"/></svg></span>
+          <div><dt>Operations and enquiries</dt><dd><a href="mailto:navigation@compassnai.com">navigation@compassnai.com</a></dd></div>
+          <button class="copy-btn" type="button" data-copy="navigation@compassnai.com">Copy</button>
+        </div>
+        <div class="channel">
+          <span class="ci" aria-hidden="true"><svg><use href="#i-mail"/></svg></span>
+          <div><dt>Proprietor · Shahas S</dt><dd><a href="mailto:shahas@compassnai.com">shahas@compassnai.com</a></dd></div>
+          <button class="copy-btn" type="button" data-copy="shahas@compassnai.com">Copy</button>
+        </div>
+      </dl>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ══════════════════════════════════════════
-     LIVE SITE STRIP — compassnai.com
-══════════════════════════════════════════════ -->
-<section class="live-strip" aria-labelledby="live-strip-h">
-  <div class="live-strip-inner">
-    <div class="live-card">
-      <div class="live-card-icon" aria-hidden="true">
-        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="13" cy="13" r="11" stroke="#11C2AD" stroke-width=".8" opacity=".4"/>
-          <circle cx="13" cy="13" r="7.5" stroke="#11C2AD" stroke-width=".5" stroke-dasharray="2 5" opacity=".5"/>
-          <polygon points="13,4 14.5,12 13,10.5 11.5,12" fill="#11C2AD"/>
-          <polygon points="13,22 14.5,14 13,15.5 11.5,14" fill="#E89F1A" opacity=".7"/>
-          <circle cx="13" cy="13" r="2" fill="#11C2AD" opacity=".6"/>
-          <circle cx="13" cy="13" r="1" fill="#ECE8FF"/>
-        </svg>
-      </div>
-      <div class="live-card-body">
-        <div class="live-card-eyebrow">
-          <span class="live-card-dot" aria-hidden="true"></span>
-          Live Platform
-        </div>
-        <h2 class="live-card-h" id="live-strip-h">
-          Experience it at
-          <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener">www.compassnai.com</a>
-        </h2>
-        <p class="live-card-p">The full Compass Nexus platform — butterfly canvas, live coordinate navigation, dark cinematic design, animated metrics, and the bento feature grid — is live and interactive. No sign-up required.</p>
-      </div>
-      <div class="live-card-actions">
-        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-live" target="_blank" rel="noopener">
-          Open Live Site
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<!-- ═════════════ FOOTER ═════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div style="display:grid;gap:16px;align-content:start">
+        <a class="brand" href="#top" aria-label="Compass Nexus iQ, back to top">
+          <svg class="brand-mark" aria-hidden="true"><use href="#compass"/></svg>
+          <span class="brand-name">Compass Nexus <b>iQ</b></span>
         </a>
-        <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="btn-live-ghost" target="_blank" rel="noopener">
-          compassnai.com
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5.5M9 2V5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <p style="max-width:40ch">Intelligent navigation for employee transportation. Operated by M/S Compass Travel &amp; Transportation, Thiruvananthapuram.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#chain">How it works</a></li>
+          <li><a href="#verification">Trip verification</a></li>
+          <li><a href="#billing">Invoicing</a></li>
+          <li><a href="#apps">Apps</a></li>
+          <li><a href="#ai">Compass Nexus iQ AI</a></li>
+          <li><a href="https://www.compassnai.com" target="_blank" rel="noopener">compassnai.com</a></li>
+          <li><a href="https://www.compassmobilityindia.com" target="_blank" rel="noopener">compassmobilityindia.com</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>Business details</h4>
+        <dl class="entity">
+          <div><dt>Entity</dt><dd>M/S Compass Travel &amp; Transportation</dd></div>
+          <div><dt>GSTIN</dt><dd>32AARFC8429L1ZY</dd></div>
+          <div><dt>UDYAM</dt><dd>UDYAM-KL-12-0067020</dd></div>
+          <div><dt>Registered</dt><dd>TC 35/1044-1, Shadiya Manzil, Gandhi Nagar, Vallakadavu P.O., Thiruvananthapuram, Kerala 695008</dd></div>
+        </dl>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════ -->
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener" style="text-decoration:none"><span class="brand-wordmark">COMPASS <span class="accent">NEXUS</span></span></a>
-      <p class="footer-tag">Navigate the future with precision.</p>
-      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" class="footer-live-link" target="_blank" rel="noopener" aria-label="Visit compassnai.com">
-        <span class="footer-live-link-dot" aria-hidden="true"></span>
-        www.compassnai.com
-      </a>
+    <div class="footer-base">
+      <span>© <span id="year">2026</span> Compass Travel &amp; Transportation</span>
+      <span>Product screens on this page show sample data.</span>
     </div>
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="#features">Platform</a>
-      <a href="#pricing">Pricing</a>
-      <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener">Live Site</a>
-      <a href="#features">Features</a>
-      <a href="#metrics">Metrics</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-    </nav>
-    <p class="footer-copy">© 2026 Compass Nexus — <a href="https://claude.ai/code/artifact/f7345d95-1de0-4eea-bb3d-feb92b6b36e2" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em">www.compassnai.com</a> — All rights reserved.</p>
   </div>
 </footer>
 
-<script>
-/* ── Butterfly canvas ──────────────────────── */
-(function(){
-  const canvas = document.getElementById('butterfly-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, bflies = [];
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reducedMotion) { canvas.style.display='none'; return; }
+</div>
 
-  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-
-  const PALETTES = [
-    [232,159,26],   // amber
-    [17,194,173],   // teal
-    [167,139,250],  // violet
-    [236,72,153],   // pink
-    [96,165,250],   // blue
-  ];
-
-  class Butterfly {
-    constructor(){ this.init(true); }
-    init(first){
-      this.x = Math.random() * W;
-      this.y = first ? Math.random() * H : (Math.random() > .5 ? -70 : H + 70);
-      this.sz = 7 + Math.random() * 13;
-      this.spd = .25 + Math.random() * .65;
-      this.drift = (Math.random()-.5) * .5;
-      this.phase = Math.random() * Math.PI * 2;
-      this.fspd = 1.8 + Math.random() * 3.5;
-      this.alpha = .07 + Math.random() * .16;
-      this.rgb = PALETTES[Math.floor(Math.random() * PALETTES.length)];
-      this.angle = Math.random() * Math.PI * 2;
-      this.wobble = 0;
-    }
-    update(t){
-      this.wobble += .008;
-      this.angle += this.drift * .009;
-      this.x += Math.cos(this.angle) * this.spd;
-      this.y -= this.spd * .35;
-      this.y += Math.sin(this.wobble) * .55;
-      if (this.y < -80 || this.x < -80 || this.x > W + 80) this.init(false);
-    }
-    draw(t){
-      this.update(t);
-      const flap = Math.abs(Math.sin(t * .001 * this.fspd + this.phase));
-      const [r,g,b] = this.rgb;
-      const a = this.alpha;
-      const sz = this.sz;
-      const ws = sz * (.55 + .45 * (1-flap));
-
-      ctx.save();
-      ctx.translate(this.x, this.y);
-      ctx.rotate(this.angle);
-
-      // Upper wings
-      const drawWing = (flip) => {
-        const f = flip ? -1 : 1;
-        ctx.beginPath();
-        ctx.moveTo(0,0);
-        ctx.bezierCurveTo(f*ws*1.4,-ws*.5-flap*ws*.9,f*ws*2.1,-ws*.15,f*ws*2.3,ws*.65);
-        ctx.bezierCurveTo(f*ws*1.9,ws*1.1,f*ws*.6,ws*.95,0,ws*.42);
-        ctx.closePath();
-        ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
-        ctx.fill();
-        // Lower wing
-        ctx.beginPath();
-        ctx.moveTo(0,ws*.42);
-        ctx.bezierCurveTo(f*ws*.9,ws*1.2,f*ws*1.7,ws*1.45,f*ws*1.4,ws*2.05);
-        ctx.bezierCurveTo(f*ws*.55,ws*2.3,f*ws*.1,ws*1.65,0,ws*1.1);
-        ctx.closePath();
-        ctx.fillStyle = `rgba(${r},${g},${b},${a*.55})`;
-        ctx.fill();
-      };
-      drawWing(false);
-      drawWing(true);
-
-      // Body
-      ctx.beginPath();
-      ctx.ellipse(0,ws*.55,sz*.11,sz*.62,0,0,Math.PI*2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${a*1.6})`;
-      ctx.fill();
-
-      // Antennae
-      ctx.strokeStyle = `rgba(${r},${g},${b},${a*.9})`;
-      ctx.lineWidth = .6;
-      [[-1,1]].forEach(([_,x])=>{
-        [-1,1].forEach(side=>{
-          ctx.beginPath();
-          ctx.moveTo(0,0);
-          ctx.quadraticCurveTo(side*sz*.5,-sz*1.0,side*sz*.22,-sz*1.65);
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.arc(side*sz*.22,-sz*1.65,1.3,0,Math.PI*2);
-          ctx.fillStyle=`rgba(${r},${g},${b},${a})`;
-          ctx.fill();
-        });
-      });
-
-      ctx.restore();
-    }
-  }
-
-  function init(){
-    resize();
-    const count = Math.min(32, Math.floor(W*H/40000));
-    bflies = Array.from({length:count}, ()=>new Butterfly());
-  }
-
-  let raf;
-  function loop(t){ ctx.clearRect(0,0,W,H); bflies.forEach(b=>b.draw(t)); raf=requestAnimationFrame(loop); }
-
-  window.addEventListener('resize', resize);
-  init();
-  raf = requestAnimationFrame(loop);
-})();
-
-/* ── Counter animation ─────────────────────── */
-function animCounter(el, target, decimals, dur){
-  const t0 = performance.now();
-  function tick(now){
-    const p = Math.min((now-t0)/dur, 1);
-    const ease = 1 - Math.pow(1-p,3);
-    const val = (target*ease).toFixed(decimals);
-    const disp = target >= 1000 ? (+val).toLocaleString() : val;
-    el.textContent = disp;
-    if(p<1) requestAnimationFrame(tick);
-    else el.textContent = target>=1000 ? target.toLocaleString() : target.toFixed(decimals);
-  }
-  requestAnimationFrame(tick);
-}
-
-const countObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting || e.target.dataset.done) return;
-    e.target.dataset.done='1';
-    animCounter(e.target, +e.target.dataset.target, +e.target.dataset.decimals, 2000);
-  });
-}, {threshold:.3});
-document.querySelectorAll('.stat-val[data-target]').forEach(el=>countObs.observe(el));
-
-/* ── Bento reveal ──────────────────────────── */
-const bentoObs = new IntersectionObserver(entries=>{
-  entries.forEach((e,_)=>{
-    if(!e.isIntersecting) return;
-    const delay = Array.from(document.querySelectorAll('.bcard')).indexOf(e.target)*55;
-    setTimeout(()=>e.target.classList.add('revealed'),delay);
-    bentoObs.unobserve(e.target);
-  });
-},{threshold:.08});
-document.querySelectorAll('.bcard').forEach(c=>bentoObs.observe(c));
-
-/* ── Mobile nav ────────────────────────────── */
-const mobileBtn = document.getElementById('mobile-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-if(mobileBtn && mobileMenu){
-  mobileBtn.addEventListener('click',()=>{
-    const open = mobileBtn.getAttribute('aria-expanded')==='true';
-    mobileBtn.setAttribute('aria-expanded',String(!open));
-    mobileMenu.classList.toggle('open');
-  });
-  mobileMenu.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{
-    mobileBtn.setAttribute('aria-expanded','false');
-    mobileMenu.classList.remove('open');
-  }));
-  document.addEventListener('click',e=>{
-    if(!mobileBtn.contains(e.target)&&!mobileMenu.contains(e.target)){
-      mobileBtn.setAttribute('aria-expanded','false');
-      mobileMenu.classList.remove('open');
-    }
-  });
-}
-
-/* ── Theme toggle ──────────────────────────── */
-const html = document.documentElement;
-const themeBtn = document.getElementById('theme-toggle');
-function getTheme(){ return html.dataset.theme||'dark'; }
-function setTheme(t){ html.dataset.theme=t; try{localStorage.setItem('cn-theme',t);}catch(e){} }
-// Restore saved preference
-try{ const s=localStorage.getItem('cn-theme'); if(s) setTheme(s); }catch(e){}
-if(themeBtn) themeBtn.addEventListener('click',()=>setTheme(getTheme()==='dark'?'light':'dark'));
-
-/* ── Live coordinate display ───────────────── */
-(function(){
-  const el = document.getElementById('nav-coord-text');
-  if(!el) return;
-  // Simulate slow drift — purely decorative
-  let lat = 37.7749, lng = -122.4194;
-  setInterval(()=>{
-    lat += (Math.random()-.5)*.004;
-    lng += (Math.random()-.5)*.004;
-    const latD = lat.toFixed(4)+'° '+(lat>=0?'N':'S');
-    const lngD = Math.abs(lng).toFixed(4)+'° '+(lng>=0?'E':'W');
-    el.textContent = latD+', '+lngD;
-  }, 3000);
-})();
-
-/* ── Nav scroll compress ───────────────────── */
-const navWrap = document.querySelector('.nav-wrap');
-window.addEventListener('scroll',()=>{
-  if(!navWrap) return;
-  navWrap.style.paddingTop = window.scrollY > 24 ? '8px' : '14px';
-},{passive:true});
-</script>
+<script src="script.js" defer></script>
 </body>
 </html>
