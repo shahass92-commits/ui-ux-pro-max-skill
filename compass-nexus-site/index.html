@@ -6,6 +6,8 @@
 <title>Compass Nexus iQ</title>
 <meta name="description" content="Compass Nexus iQ runs corporate employee transportation end to end for Compass Travel &amp; Transportation, Thiruvananthapuram: booking, vehicles, drivers, live trips, trip verification, invoicing and payment tracking in one auditable record.">
 <meta name="theme-color" content="#0B1B33">
+<link rel="icon" type="image/png" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/compass-nexus-iq-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -60,18 +62,9 @@
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m22 7-10 6L2 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 12h19M12 2.5a14.5 14.5 0 0 1 0 19M12 2.5a14.5 14.5 0 0 0 0 19" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <!-- Compass mark: ring, cardinal ticks, needle (gold north, blue south) -->
-    <symbol id="compass" viewBox="0 0 64 64">
-      <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
-      <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="1.5"/>
-      <path d="M32 3v6M32 55v6M3 32h6M55 32h6" stroke="currentColor" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
-      <g class="needle">
-        <path d="M32 9 38.5 32h-13z" style="fill:var(--gold-bright)"/>
-        <path d="M32 9 32 32h-6.5z" style="fill:var(--gold)"/>
-        <path d="M32 55 25.5 32h13z" style="fill:var(--blue)"/>
-        <path d="M32 55 32 32h6.5z" style="fill:var(--navy);fill-opacity:.85"/>
-        <circle cx="32" cy="32" r="3.4" style="fill:var(--surface)" stroke="currentColor" stroke-width="1.6"/>
-      </g>
+    <!-- Navigation arrow from the Compass Nexus IQ mark (outline, for watermarks) -->
+    <symbol id="nav-arrow" viewBox="110 150 260 215">
+      <path d="M130 172 350 170 240 344 222 238Z" fill="none" stroke="currentColor" stroke-width="14" stroke-linejoin="round"/>
     </symbol>
   </defs>
 </svg>
@@ -81,20 +74,12 @@
 <!-- ═════════════ NAV ═════════════ -->
 <header class="nav-shell">
   <nav class="nav glass" aria-label="Main">
-    <a class="brand" href="#top" aria-label="Compass Nexus iQ, back to top">
-      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
-      <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="1.5"/>
-      <path d="M32 3v6M32 55v6M3 32h6M55 32h6" stroke="currentColor" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
-      <g class="needle">
-        <path d="M32 9 38.5 32h-13z" style="fill:var(--gold-bright)"/>
-        <path d="M32 9 32 32h-6.5z" style="fill:var(--gold)"/>
-        <path d="M32 55 25.5 32h13z" style="fill:var(--blue)"/>
-        <path d="M32 55 32 32h6.5z" style="fill:var(--navy);fill-opacity:.85"/>
-        <circle cx="32" cy="32" r="3.4" style="fill:var(--surface)" stroke="currentColor" stroke-width="1.6"/>
-      </g>
-      </svg>
-      <span class="brand-name">Compass Nexus <b>iQ</b></span>
+    <a class="brand" href="#top" aria-label="Compass Nexus IQ, back to top">
+      <img class="brand-mark" src="assets/compass-nexus-iq-mark.png" width="40" height="40" alt="">
+      <span class="brand-text">
+        <span class="brand-name">Compass Nexus <b>IQ</b></span>
+        <span class="brand-tag">Intelligent Navigation</span>
+      </span>
     </a>
     <ul class="nav-links">
       <li><a href="#chain">Platform</a></li>
@@ -521,7 +506,7 @@
 <section class="band" id="contact" aria-labelledby="contact-h">
   <div class="wrap">
     <div class="contact glass">
-      <svg class="contact-rose" aria-hidden="true"><use href="#compass"/></svg>
+      <svg class="contact-rose" aria-hidden="true"><use href="#nav-arrow"/></svg>
       <div class="contact-copy">
         <span class="eyebrow">Get started</span>
         <h2 class="h2" id="contact-h">Plan transport for your campus</h2>
@@ -563,9 +548,12 @@
   <div class="wrap">
     <div class="footer-grid">
       <div style="display:grid;gap:16px;align-content:start">
-        <a class="brand" href="#top" aria-label="Compass Nexus iQ, back to top">
-          <svg class="brand-mark" aria-hidden="true"><use href="#compass"/></svg>
-          <span class="brand-name">Compass Nexus <b>iQ</b></span>
+        <a class="brand" href="#top" aria-label="Compass Nexus IQ, back to top">
+          <img class="brand-mark" src="assets/compass-nexus-iq-mark.png" width="40" height="40" alt="">
+          <span class="brand-text brand-text-lg">
+            <span class="brand-name">Compass Nexus <b>IQ</b></span>
+            <span class="brand-tag">Intelligent Navigation</span>
+          </span>
         </a>
         <p style="max-width:40ch">Intelligent navigation for employee transportation. Operated by M/S Compass Travel &amp; Transportation, Thiruvananthapuram.</p>
       </div>
