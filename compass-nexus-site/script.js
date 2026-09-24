@@ -51,7 +51,7 @@
     menuBtn.addEventListener('click', function () { setOpen(menu.hidden); });
     menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { setOpen(false); menuBtn.focus(); } });
-    window.matchMedia('(min-width: 1061px)').addEventListener('change', function (e) { if (e.matches) setOpen(false); });
+    window.matchMedia('(min-width: 1181px)').addEventListener('change', function (e) { if (e.matches) setOpen(false); });
   }
 
   // ── Copy buttons ───────────────────────────────────────────

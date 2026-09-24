@@ -74,10 +74,10 @@
 <!-- ═════════════ NAV ═════════════ -->
 <header class="nav-shell">
   <nav class="nav glass" aria-label="Main">
-    <a class="brand" href="#top" aria-label="Compass Nexus IQ, back to top">
-      <img class="brand-mark" src="assets/compass-nexus-iq-mark.png" width="40" height="40" alt="">
+    <a class="brand" href="#top" aria-label="Compass Nexus iQ, back to top">
+      <span class="mark" aria-hidden="true"><img src="assets/compass-nexus-iq-mark.png" width="40" height="40" alt=""><i class="mark-sweep"></i></span>
       <span class="brand-text">
-        <span class="brand-name">Compass Nexus <b>IQ</b></span>
+        <span class="brand-name">Compass Nexus <b>iQ</b></span>
         <span class="brand-tag">Intelligent Navigation</span>
       </span>
     </a>
@@ -85,6 +85,7 @@
       <li><a href="#chain">Platform</a></li>
       <li><a href="#verification">Verification</a></li>
       <li><a href="#billing">Billing</a></li>
+      <li><a href="#payouts">Payouts</a></li>
       <li><a href="#apps">Apps</a></li>
       <li><a href="#ai">AI</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -104,6 +105,7 @@
     <a href="#chain">Platform</a>
     <a href="#verification">Verification</a>
     <a href="#billing">Billing</a>
+    <a href="#payouts">Payouts</a>
     <a href="#apps">Apps</a>
     <a href="#ai">AI</a>
     <a href="#faq">FAQ</a>
@@ -116,6 +118,7 @@
 <!-- ═════════════ HERO ═════════════ -->
 <section class="hero" id="top" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
+    <div class="hero-intro">
     <div class="hero-copy">
       <div class="hero-meta">
         <span class="eyebrow">Employee transportation platform</span>
@@ -127,6 +130,14 @@
         <a class="btn btn-primary btn-lg" href="#contact">Plan your campus transport <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-ghost btn-lg" href="#verification">See how a trip is verified</a>
       </div>
+    </div>
+
+    <div class="emblem" aria-hidden="true">
+      <i class="orbit o1"><b></b></i>
+      <i class="orbit o2"><b></b></i>
+      <i class="orbit o3"></i>
+      <span class="mark mark-xl"><img src="assets/compass-nexus-iq-mark-lg.png" width="200" height="200" alt=""><i class="mark-sweep"></i></span>
+    </div>
     </div>
 
     <figure class="console glass" aria-label="Sample of the Admin Command Centre showing today's trips">
@@ -196,7 +207,7 @@
       <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Invoice</h3><p>Tax invoice with the full supporting package for the period.</p></li>
       <li class="step"><span class="step-node" aria-hidden="true"></span><h3>Get paid</h3><p>Payments tracked against each invoice and reported monthly.</p></li>
     </ol>
-    <p class="chain-note"><span class="key" aria-hidden="true"></span>Gold stages are human checkpoints. A trip cannot move past them automatically.</p>
+    <p class="chain-note"><span class="key" aria-hidden="true"></span>Gold stages are human checkpoints. A trip cannot move past them automatically. Driving partners are paid from the same verified trips: see <a href="#payouts">partner payouts</a>.</p>
   </div>
 </section>
 
@@ -299,6 +310,58 @@
   </div>
 </section>
 
+<!-- ═════════════ PARTNER PAYOUTS ═════════════ -->
+<section class="band" id="payouts" aria-labelledby="payouts-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Driving partner payouts</span>
+      <h2 class="h2" id="payouts-h">After every verified trip, the driving partner is paid on record</h2>
+      <p class="lede">Payouts come from the same locked trips the customer is billed for. Each driving partner sees what they earned, trip by trip, before Finance releases the payment.</p>
+    </div>
+    <div class="payout">
+      <div class="payout-copy">
+        <ol class="flow" aria-label="Payout steps">
+          <li><h3>Trip locked</h3><p>Only verified, locked trips count toward a payout.</p></li>
+          <li><h3>Earnings calculated</h3><p>At the rate in the partner agreement: per trip, per KM or per shift.</p></li>
+          <li><h3>Statement to the partner</h3><p>The driver app shows every trip and amount. The partner can query any line.</p></li>
+          <li class="gate"><h3>Finance approves</h3><p>A person approves each payout run. Nothing is released automatically.</p></li>
+          <li><h3>Paid and linked</h3><p>Bank transfer or UPI. The payment reference is saved against every trip it covers.</p></li>
+        </ol>
+        <ul class="feat-list payout-rules">
+          <li>Disputed or unverified trips are held, never dropped</li>
+          <li>Deductions such as advances are listed line by line with a reason</li>
+          <li>Customer billing and partner payouts reconcile per period for Finance</li>
+        </ul>
+      </div>
+
+      <article class="statement glass" aria-label="Sample driving partner statement">
+        <div class="statement-head">
+          <div>
+            <p class="statement-title">Partner statement</p>
+            <p class="record-sub">Driving partner DP-014 · Sedan · AC · 16–30 Sep 2026</p>
+          </div>
+          <span class="sample-tag">Sample</span>
+        </div>
+        <dl class="ledger-rows">
+          <div><dt>Verified trips</dt><dd class="mono">48</dd></div>
+          <div><dt>Actual KM</dt><dd class="mono">1,026.4</dd></div>
+          <div><dt>Trip earnings</dt><dd class="mono">₹38,450.00</dd></div>
+          <div><dt>Waiting and night allowance</dt><dd class="mono">₹1,200.00</dd></div>
+          <div><dt>Advance recovered</dt><dd class="mono neg">−₹5,000.00</dd></div>
+          <div class="total"><dt>Net payable</dt><dd class="mono">₹34,650.00</dd></div>
+        </dl>
+        <p class="held"><span class="pill pill-warn">Held</span><span>1 trip · <span class="mono">CNQ-0924-0131</span> · disputed, paid once resolved</span></p>
+        <ol class="timeline" aria-label="Payout status">
+          <li class="done"><span>Statement shared</span><time class="mono">01 Oct</time></li>
+          <li class="done"><span>Approved by Finance</span><time class="mono">01 Oct</time></li>
+          <li class="done"><span>Paid · UTR ••••4821</span><time class="mono">02 Oct</time></li>
+        </ol>
+        <div class="scr-btns" aria-hidden="true"><span class="go">View trips</span><span>Raise query</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ═════════════ QUALITY ═════════════ -->
 <section class="band" id="quality" aria-labelledby="quality-h">
   <div class="wrap">
@@ -366,7 +429,7 @@
           <div class="scr-bar"><i style="width:75%"></i></div>
           <div class="scr-btns"><span class="go">Start trip</span><span>Mark no-show</span></div>
         </div>
-        <ul class="feat-list"><li>KM entry and GPS KM</li><li>Vehicle inspection and incidents</li><li>Document expiry alerts</li></ul>
+        <ul class="feat-list"><li>KM entry and GPS KM</li><li>Earnings and payout statements</li><li>Vehicle inspection and document alerts</li></ul>
       </article>
       <article class="app">
         <div class="app-top"><span class="app-ico" aria-hidden="true"><svg><use href="#i-person"/></svg></span><span class="app-who">Employee</span></div>
@@ -443,11 +506,11 @@
         <ul class="roles">
           <li class="role">Super Admin <small>all records</small></li>
           <li class="role">Business Admin <small>profiles, contracts</small></li>
-          <li class="role">Finance <small>invoices, payments</small></li>
+          <li class="role">Finance <small>invoices, payouts</small></li>
           <li class="role">Operations <small>trips, dispatch</small></li>
           <li class="role">Fleet Manager <small>vehicles, drivers</small></li>
           <li class="role">Customer Admin <small>own account</small></li>
-          <li class="role">Driver <small>assigned trips</small></li>
+          <li class="role">Driver <small>trips, own payouts</small></li>
           <li class="role">Employee <small>own trips</small></li>
         </ul>
       </article>
@@ -485,6 +548,10 @@
       <details>
         <summary>What happens if a trip record needs correcting after it is locked?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
         <p>The correction is recorded as a change, never an overwrite. The audit trail keeps the old value, the new value, who changed it, when, and the reason.</p>
+      </details>
+      <details>
+        <summary>How are driving partners paid?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>From verified trips only. At the end of each payout period the partner gets a statement in the driver app listing every trip, the agreed rate and any deductions. Finance approves the run, the payment goes by bank transfer or UPI, and the reference is stored against each trip. Disputed trips are held until they are resolved.</p>
       </details>
       <details>
         <summary>Does the AI issue invoices by itself?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
@@ -548,10 +615,10 @@
   <div class="wrap">
     <div class="footer-grid">
       <div style="display:grid;gap:16px;align-content:start">
-        <a class="brand" href="#top" aria-label="Compass Nexus IQ, back to top">
-          <img class="brand-mark" src="assets/compass-nexus-iq-mark.png" width="40" height="40" alt="">
+        <a class="brand" href="#top" aria-label="Compass Nexus iQ, back to top">
+          <span class="mark" aria-hidden="true"><img src="assets/compass-nexus-iq-mark.png" width="40" height="40" alt=""><i class="mark-sweep"></i></span>
           <span class="brand-text brand-text-lg">
-            <span class="brand-name">Compass Nexus <b>IQ</b></span>
+            <span class="brand-name">Compass Nexus <b>iQ</b></span>
             <span class="brand-tag">Intelligent Navigation</span>
           </span>
         </a>
@@ -563,6 +630,7 @@
           <li><a href="#chain">How it works</a></li>
           <li><a href="#verification">Trip verification</a></li>
           <li><a href="#billing">Invoicing</a></li>
+          <li><a href="#payouts">Partner payouts</a></li>
           <li><a href="#apps">Apps</a></li>
           <li><a href="#ai">Compass Nexus iQ AI</a></li>
           <li><a href="https://www.compassnai.com" target="_blank" rel="noopener">compassnai.com</a></li>
